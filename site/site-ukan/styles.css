@@ -248,3 +248,21 @@ footer.site p{font-size:14px;line-height:23px;color:#C9D2E0;}
   .service,nav.principal,.burger,.appel{display:none;}
   body{font-size:12pt;}
 }
+
+/* ---------- page du président ---------- */
+.portrait-bio{grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:56px;align-items:start;}
+.portrait{aspect-ratio:4/5;max-width:100%;background:var(--bleu-voile);border:1px solid var(--g300);
+          border-top:5px solid var(--orange);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;}
+.portrait span{font-family:var(--serif);font-size:72px;font-weight:600;color:var(--bleu);letter-spacing:-0.02em;}
+@media (max-width:860px){
+  .portrait-bio{grid-template-columns:1fr;gap:32px;}
+  .portrait{max-width:240px;}
+}
+
+/* ---------- citation ---------- */
+.citation{margin:0 auto;max-width:820px;text-align:center;}
+.citation::before{content:"";display:block;width:120px;height:3px;margin:0 auto 28px auto;
+  background:linear-gradient(90deg,var(--rouge) 25%,var(--bleu) 25% 50%,var(--orange) 50% 75%,var(--vert) 75%);}
+.citation p{font-family:var(--serif);font-size:26px;line-height:38px;font-weight:400;font-style:italic;color:var(--bleu);text-wrap:balance;}
+.citation cite{display:block;margin-top:18px;font-style:normal;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--orange-fonce);}
+@media (max-width:860px){.citation p{font-size:21px;line-height:32px;}}
