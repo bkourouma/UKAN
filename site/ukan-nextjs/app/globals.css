@@ -1,0 +1,2186 @@
+/* =========================================================================
+   UKAN Côte d’Ivoire — feuille de style
+   Toutes les valeurs viennent de la charte graphique (charte/charte-ukan-reglages.md).
+   ========================================================================= */
+
+/* ---------- 1. Jetons ---------- */
+:root {
+  /* Couleurs principales */
+  --bleu: #001e58;
+  --orange: #ff6b01;
+  --vert: #02743a;
+
+  /* Déclinaisons */
+  --bleu-profond: #00153e;
+  --bleu-clair: #0a2f72;
+  --bleu-voile: #e8edf6;
+  --orange-texte: #c24e00;
+  --orange-voile: #fff1e6;
+  --vert-voile: #e6f2eb;
+  --rouge-filet: #c8102e;
+  --ambre: #8a5100;
+
+  /* Gris */
+  --encre: #0e1420;
+  --g700: #47536b;
+  --g500: #6e7c96;
+  --g300: #c9d2e0;
+  --g100: #edf1f7;
+  --g50: #f7f9fc;
+
+  /* Sur fond bleu */
+  --sur-bleu: #c9d2e0;
+  --sur-bleu-doux: #8fa2c4;
+
+  /* Écritures */
+  --serif: var(--font-serif), "Source Serif 4", Georgia, serif;
+  --sans: var(--font-sans), "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+
+  /* Arrondis */
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-pill: 999px;
+
+  /* Ombres, toujours teintées de bleu */
+  --ombre-legere: 0 1px 2px rgba(0, 30, 88, 0.1);
+  --ombre-moyenne: 0 4px 12px rgba(0, 30, 88, 0.12);
+  --ombre-forte: 0 12px 32px rgba(0, 30, 88, 0.16);
+
+  /* Mise en page */
+  --gouttiere: clamp(20px, 6vw, 80px);
+  --largeur: 1280px;
+  --section: clamp(64px, 9vw, 96px);
+  --entete: 80px;
+
+  /* Fonds de remplacement (charte § 9) */
+  --degrade-bleu: linear-gradient(145deg, #00153e 0%, #001e58 45%, #0a2f72 100%);
+}
+
+/* ---------- 2. Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--entete) + 24px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: var(--encre);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+blockquote,
+figure {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: var(--orange);
+  color: var(--bleu);
+}
+
+:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- 3. Écritures (charte § 2) ---------- */
+.h1,
+.h2,
+.h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  color: var(--bleu);
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+  font-optical-sizing: auto;
+}
+
+.h1 {
+  font-size: clamp(38px, 5.2vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.h2 {
+  font-size: clamp(28px, 3.4vw, 36px);
+  line-height: 1.22;
+}
+
+.h3 {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.h4 {
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 26px;
+  font-weight: 600;
+  color: var(--bleu);
+}
+
+.chapo {
+  font-size: clamp(18px, 1.6vw, 20px);
+  line-height: 1.6;
+  font-weight: 300;
+  color: var(--g700);
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+
+.texte {
+  max-width: 68ch;
+}
+
+.texte p + p {
+  margin-top: 1em;
+}
+
+.texte p,
+.prose p {
+  text-wrap: pretty;
+}
+
+.petit {
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--g700);
+}
+
+.legende {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--g500);
+}
+
+/* Le sur-titre de la charte : réservé aux rares endroits où il informe. */
+.surtitre {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange-texte);
+}
+
+.lien-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--orange-texte);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+  transition: text-decoration-color 0.15s;
+}
+
+.lien-action:hover {
+  text-decoration-color: currentColor;
+}
+
+.lien-action svg {
+  transition: transform 0.15s;
+}
+
+.lien-action:hover svg {
+  transform: translateX(3px);
+}
+
+.lien-texte {
+  color: var(--orange-texte);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- 4. Mise en page ---------- */
+.wrap {
+  width: 100%;
+  max-width: var(--largeur);
+  margin-inline: auto;
+  padding-inline: var(--gouttiere);
+}
+
+.section {
+  padding-block: var(--section);
+}
+
+.section--gris {
+  background: var(--g50);
+}
+
+.section--voile {
+  background: var(--bleu-voile);
+}
+
+.section--serre {
+  padding-block: 48px;
+}
+
+.section--bordee {
+  border-top: 1px solid var(--g100);
+}
+
+.tete-section {
+  display: grid;
+  gap: 16px;
+  max-width: 760px;
+  margin-bottom: clamp(32px, 4vw, 48px);
+}
+
+.deux-colonnes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(32px, 6vw, 80px);
+  align-items: start;
+}
+
+.deux-colonnes--centre {
+  align-items: center;
+}
+
+.colonne-etroite {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(32px, 6vw, 80px);
+  align-items: start;
+}
+
+.pile > * + * {
+  margin-top: 20px;
+}
+
+.pile-serree > * + * {
+  margin-top: 12px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+/* ---------- 5. Filet tricolore (charte § 1, règle 3) ---------- */
+.filet {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 4px;
+}
+
+.filet > i:nth-child(1) {
+  background: var(--rouge-filet);
+}
+.filet > i:nth-child(2) {
+  background: #ffffff;
+}
+.filet > i:nth-child(3) {
+  background: var(--orange);
+}
+.filet > i:nth-child(4) {
+  background: var(--vert);
+}
+
+/* Sur fond blanc, le segment blanc devient bleu. */
+.filet--clair > i:nth-child(2) {
+  background: var(--bleu);
+}
+
+.filet--court {
+  width: 96px;
+  height: 3px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.filet--court > i:nth-child(1) {
+  background: var(--orange);
+}
+.filet--court > i:nth-child(2) {
+  background: var(--vert);
+}
+
+/* ---------- 6. Boutons (charte § 6) ---------- */
+.bouton {
+  --h: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: var(--h);
+  padding: 0 24px;
+  border: 2px solid transparent;
+  border-radius: var(--r-sm);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.15s,
+    color 0.15s,
+    border-color 0.15s;
+}
+
+.bouton svg {
+  flex: none;
+}
+
+.bouton--grand {
+  --h: 56px;
+  padding: 0 30px;
+  font-size: 17px;
+}
+
+/* Action principale : une seule par écran. */
+.bouton--orange {
+  background: var(--orange);
+  color: var(--bleu);
+  font-weight: 700;
+}
+
+.bouton--orange:hover {
+  background: var(--orange-texte);
+  color: #ffffff;
+}
+
+.bouton--bleu {
+  background: var(--bleu);
+  color: #ffffff;
+}
+
+.bouton--bleu:hover {
+  background: var(--bleu-clair);
+}
+
+.bouton--contour {
+  background: transparent;
+  color: var(--bleu);
+  border-color: var(--bleu);
+}
+
+.bouton--contour:hover {
+  background: var(--bleu-voile);
+}
+
+.bouton--contour-blanc {
+  background: transparent;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.bouton--contour-blanc:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+}
+
+/* ---------- 7. Étiquette « à compléter » (charte § 10) ---------- */
+.a-completer {
+  display: inline-block;
+  padding: 1px 8px;
+  border: 1px dashed var(--ambre);
+  border-radius: 3px;
+  background: #fff8ec;
+  color: var(--ambre);
+  font-family: var(--sans);
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  vertical-align: 1px;
+}
+
+/* ---------- 8. Accessibilité ---------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.evitement {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 100;
+  padding: 12px 16px;
+  background: var(--bleu);
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: var(--r-sm);
+  transform: translateY(-150%);
+}
+
+.evitement:focus {
+  transform: none;
+}
+
+/* ---------- 9. Bandeau de service + en-tête ---------- */
+.service {
+  background: var(--bleu-profond);
+  color: var(--sur-bleu);
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.service .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 36px;
+}
+
+.service a:hover {
+  color: #ffffff;
+}
+
+.service__droite {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.langues {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.langues a,
+.langues span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 28px;
+  padding: 0 6px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 3px;
+}
+
+.langues [aria-current] {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.entete {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #ffffff;
+  box-shadow: var(--ombre-legere);
+}
+
+.entete__barre {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  height: var(--entete);
+}
+
+.logo {
+  flex: none;
+  display: block;
+}
+
+.logo img {
+  width: auto;
+  height: 56px;
+}
+
+.nav-principale {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.2vw, 32px);
+}
+
+.nav-principale ul {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 1.8vw, 28px);
+}
+
+.nav-principale a:not(.bouton) {
+  position: relative;
+  display: block;
+  padding-block: 28px;
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 500;
+  color: var(--bleu);
+  white-space: nowrap;
+}
+
+.nav-principale a:not(.bouton)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 18px;
+  height: 3px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s;
+}
+
+.nav-principale a:not(.bouton):hover::after {
+  transform: scaleX(0.4);
+}
+
+.nav-principale a[aria-current="page"]::after {
+  transform: scaleX(1) !important;
+}
+
+.burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-right: -10px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--r-sm);
+  background: transparent;
+  color: var(--bleu);
+  cursor: pointer;
+}
+
+/* Menu téléphone : plein écran sur bleu, logo blanc court (charte § 8). */
+.menu-mobile {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  flex-direction: column;
+  background: var(--degrade-bleu);
+  color: #ffffff;
+  overflow-y: auto;
+}
+
+.menu-mobile[hidden] {
+  display: none;
+}
+
+.menu-mobile__haut {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--entete);
+}
+
+.menu-mobile__haut img {
+  height: 44px;
+  width: auto;
+}
+
+.menu-mobile__haut .burger {
+  display: inline-flex;
+  color: #ffffff;
+}
+
+.menu-mobile nav {
+  flex: 1;
+  padding-block: 24px 40px;
+}
+
+.menu-mobile nav li + li {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.menu-mobile nav a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 60px;
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.menu-mobile nav a[aria-current="page"] {
+  color: var(--orange);
+}
+
+.menu-mobile__bas {
+  display: grid;
+  gap: 20px;
+  padding-bottom: 32px;
+}
+
+.menu-mobile__bas .bouton {
+  width: 100%;
+}
+
+.menu-mobile__contact {
+  display: grid;
+  gap: 4px;
+  font-size: 14px;
+  color: var(--sur-bleu);
+}
+
+/* ---------- 10. Héros de l’accueil ---------- */
+.heros {
+  position: relative;
+  overflow: hidden;
+  background: var(--degrade-bleu);
+  color: #ffffff;
+  isolation: isolate;
+}
+
+/* Les deux cercles évidés du fond bleu (charte § 9). */
+.heros::before,
+.heros::after,
+.tete-page::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.heros::before {
+  width: 720px;
+  height: 720px;
+  right: -180px;
+  top: -200px;
+  border: 64px solid rgba(255, 255, 255, 0.04);
+}
+
+.heros::after {
+  width: 300px;
+  height: 300px;
+  left: -120px;
+  bottom: -160px;
+  border: 28px solid rgba(255, 107, 1, 0.14);
+}
+
+.heros__grille {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: center;
+  padding-block: clamp(56px, 9vw, 112px);
+}
+
+.heros__lieu {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--sur-bleu);
+}
+
+.heros__lieu::before {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background: var(--orange);
+}
+
+.heros .h1 {
+  margin-top: 24px;
+  color: #ffffff;
+  font-size: clamp(40px, 5.6vw, 64px);
+  max-width: 15ch;
+}
+
+.heros .h1 span {
+  display: block;
+}
+
+.heros .chapo {
+  margin-top: 24px;
+  color: var(--sur-bleu);
+  max-width: 54ch;
+}
+
+.heros .actions {
+  margin-top: 40px;
+}
+
+/* Le méridien Londres – Abidjan */
+.meridien {
+  justify-self: end;
+  width: 100%;
+  max-width: 320px;
+}
+
+.meridien svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.meridien figcaption {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--sur-bleu-doux);
+}
+
+.meridien .ville {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 600;
+  fill: #ffffff;
+}
+
+.meridien .coord {
+  font-family: var(--sans);
+  font-size: 12px;
+  fill: var(--sur-bleu-doux);
+}
+
+.meridien .graduation {
+  font-family: var(--sans);
+  font-size: 11px;
+  fill: rgba(201, 210, 224, 0.55);
+}
+
+.meridien .distance {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-style: italic;
+  fill: #ffffff;
+}
+
+.meridien .trajet {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .meridien .trajet {
+    animation: trace 1.8s cubic-bezier(0.65, 0, 0.35, 1) 0.3s both;
+  }
+
+  .meridien .arrivee {
+    animation: apparait 0.5s ease-out 1.9s both;
+  }
+
+  .meridien .distance-groupe {
+    animation: apparait 0.6s ease-out 1.2s both;
+  }
+}
+
+@keyframes trace {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes apparait {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ---------- 11. En-tête des pages intérieures ---------- */
+.tete-page {
+  position: relative;
+  overflow: hidden;
+  background: var(--degrade-bleu);
+  color: #ffffff;
+  isolation: isolate;
+}
+
+.tete-page::before {
+  width: 520px;
+  height: 520px;
+  right: -140px;
+  top: -260px;
+  border: 48px solid rgba(255, 255, 255, 0.04);
+}
+
+.tete-page .wrap {
+  padding-block: clamp(48px, 7vw, 88px);
+}
+
+.tete-page .surtitre {
+  color: var(--orange);
+  margin-bottom: 16px;
+}
+
+.tete-page .h1 {
+  color: #ffffff;
+  max-width: 20ch;
+}
+
+.tete-page .chapo {
+  margin-top: 20px;
+  color: var(--sur-bleu);
+}
+
+/* ---------- 12. Encadrés ---------- */
+.encadre {
+  padding: 24px 28px;
+  border-radius: var(--r-md);
+  background: var(--bleu-voile);
+  border-left: 4px solid var(--bleu);
+}
+
+.encadre .h4 + * {
+  margin-top: 8px;
+}
+
+.encadre p {
+  color: var(--g700);
+}
+
+.encadre--orange {
+  background: var(--orange-voile);
+  border-left-color: var(--orange);
+}
+
+.encadre--vert {
+  background: var(--vert-voile);
+  border-left-color: var(--vert);
+}
+
+.encadre--blanc {
+  background: #ffffff;
+  border: 1px solid var(--g300);
+  border-left: 4px solid var(--bleu);
+}
+
+/* ---------- 13. Listes ---------- */
+.puces li {
+  position: relative;
+  padding: 12px 0 12px 24px;
+  border-bottom: 1px solid var(--g100);
+}
+
+.puces li:first-child {
+  padding-top: 0;
+}
+
+.puces li:first-child::before {
+  top: 9px;
+}
+
+.puces li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 21px;
+  width: 8px;
+  height: 8px;
+  background: var(--orange);
+}
+
+.puces--vertes li::before {
+  background: var(--vert);
+}
+
+.puces--sans-filet li {
+  border-bottom: 0;
+  padding-block: 6px;
+}
+
+.puces--sans-filet li::before {
+  top: 15px;
+}
+
+.puces--sans-filet li:first-child::before {
+  top: 9px;
+}
+
+.coches {
+  display: grid;
+  gap: 14px;
+}
+
+.coches li {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.coche {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: var(--vert-voile);
+  color: var(--vert);
+}
+
+.pastilles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pastilles li {
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  background: var(--bleu-voile);
+  color: var(--bleu);
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.pastilles--grandes li {
+  padding: 8px 16px;
+  font-size: 15px;
+  line-height: 22px;
+  background: #ffffff;
+  border: 1px solid var(--g300);
+}
+
+/* ---------- 14. Accueil : objectifs ---------- */
+.objectifs {
+  border-bottom: 1px solid var(--g100);
+}
+
+.objectifs .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+  gap: 32px;
+  align-items: center;
+  padding-block: 40px;
+}
+
+.objectifs__titre {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 600;
+  color: var(--g700);
+  max-width: 18ch;
+}
+
+.objectifs dl {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+}
+
+.objectifs dl > div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: 4px;
+  padding-left: 24px;
+  border-left: 1px solid var(--g300);
+}
+
+.objectifs dt {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--g700);
+}
+
+.objectifs dd {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(36px, 4vw, 48px);
+  line-height: 1;
+  font-weight: 600;
+  color: var(--orange-texte);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+/* ---------- 15. Accueil : éligibilité ---------- */
+.criteres li {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 20px;
+  padding-block: 24px;
+  border-top: 1px solid var(--g300);
+}
+
+.criteres li:last-child {
+  border-bottom: 1px solid var(--g300);
+}
+
+.criteres .coche {
+  width: 40px;
+  height: 40px;
+}
+
+.criteres h3 {
+  font-family: var(--serif);
+  font-size: 21px;
+  line-height: 28px;
+  font-weight: 600;
+  color: var(--bleu);
+}
+
+.criteres p {
+  margin-top: 6px;
+  color: var(--g700);
+}
+
+/* ---------- 16. Index des programmes ---------- */
+.programmes {
+  border-top: 2px solid var(--bleu);
+}
+
+.programmes > li {
+  border-bottom: 1px solid var(--g300);
+}
+
+.programme {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 5fr) minmax(0, 5fr) 24px;
+  gap: 24px 32px;
+  align-items: center;
+  padding: 24px 16px;
+  margin-inline: -16px;
+  border-radius: var(--r-sm);
+  transition: background-color 0.15s;
+}
+
+a.programme:hover {
+  background: #ffffff;
+}
+
+a.programme:hover .programme__nom {
+  color: var(--bleu-clair);
+}
+
+.programme__nom {
+  font-family: var(--serif);
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 600;
+  color: var(--bleu);
+}
+
+.programme__nom small {
+  display: block;
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--g500);
+  letter-spacing: 0.02em;
+}
+
+.programme__but {
+  color: var(--g700);
+}
+
+.programme__fleche {
+  color: var(--orange-texte);
+  transition: transform 0.15s;
+}
+
+a.programme:hover .programme__fleche {
+  transform: translateX(4px);
+}
+
+/* Page Programmes : version détaillée */
+.fiches > li {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 24px clamp(32px, 6vw, 80px);
+  padding-block: 40px;
+  border-top: 1px solid var(--g300);
+}
+
+.fiches > li:first-child {
+  border-top: 2px solid var(--bleu);
+}
+
+.fiches > li:target {
+  background: linear-gradient(90deg, var(--orange-voile), transparent 70%);
+}
+
+.fiches .programme__nom {
+  font-size: clamp(24px, 2.6vw, 30px);
+  line-height: 1.2;
+}
+
+.fiches .programme__but {
+  margin-top: 12px;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 300;
+}
+
+.fiches .livrables {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.fiches .livrables li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+  border-radius: var(--r-md);
+  background: var(--g50);
+  border: 1px solid var(--g100);
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 500;
+  color: var(--bleu);
+}
+
+.fiches .livrables .coche {
+  margin-bottom: 12px;
+}
+
+/* ---------- 17. Calendrier du plan ---------- */
+.annees {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  counter-reset: annee;
+}
+
+.annees li {
+  position: relative;
+  padding: 28px 16px 0 0;
+}
+
+/* La ligne du temps */
+.annees li::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--g300);
+}
+
+.annees li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid var(--bleu);
+}
+
+.annees li:first-child::after {
+  background: var(--orange);
+  border-color: var(--orange);
+}
+
+.annees li:last-child::after {
+  background: var(--vert);
+  border-color: var(--vert);
+}
+
+.annees b {
+  display: block;
+  font-family: var(--serif);
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 600;
+  color: var(--bleu);
+  font-variant-numeric: lining-nums;
+}
+
+.annees span {
+  display: block;
+  margin-top: 6px;
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--g700);
+}
+
+.sombre .annees li::before {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.sombre .annees li::after {
+  background: var(--bleu);
+  border-color: #ffffff;
+}
+
+.sombre .annees li:first-child::after {
+  background: var(--orange);
+  border-color: var(--orange);
+}
+
+.sombre .annees li:last-child::after {
+  background: #3fae6f;
+  border-color: #3fae6f;
+}
+
+.sombre .annees b {
+  color: #ffffff;
+}
+
+.sombre .annees span {
+  color: var(--sur-bleu);
+}
+
+.axes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 32px;
+}
+
+.axes li {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 12px;
+  align-items: baseline;
+  padding-block: 14px;
+  border-top: 1px solid var(--g300);
+}
+
+.axes small {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--orange-texte);
+  font-variant-numeric: tabular-nums;
+}
+
+.axes span {
+  font-weight: 500;
+  color: var(--bleu);
+}
+
+/* Section sombre (plan détaillé) */
+.sombre {
+  background: var(--bleu);
+  color: #ffffff;
+}
+
+.sombre .h2,
+.sombre .h4 {
+  color: #ffffff;
+}
+
+.sombre .chapo,
+.sombre p {
+  color: var(--sur-bleu);
+}
+
+.axes-detail {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px 32px;
+  margin-top: 56px;
+}
+
+.axes-detail li {
+  padding-top: 16px;
+  border-top: 4px solid var(--orange);
+}
+
+.axes-detail small {
+  display: block;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 600;
+  color: var(--orange);
+  margin-bottom: 6px;
+}
+
+.axes-detail p {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.sombre .note {
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--sur-bleu-doux);
+}
+
+/* ---------- 18. Citation sur texture claire (charte § 9, fond 2) ---------- */
+.texture {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bleu-voile);
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(0, 30, 88, 0.07) 0 1.5px,
+    transparent 1.5px 13px
+  );
+  isolation: isolate;
+}
+
+.texture::before,
+.texture::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.texture::before {
+  width: 280px;
+  height: 280px;
+  left: -90px;
+  top: -110px;
+  border: 22px solid rgba(2, 116, 58, 0.16);
+}
+
+.texture::after {
+  width: 200px;
+  height: 200px;
+  right: -40px;
+  bottom: -90px;
+  border: 18px solid rgba(255, 107, 1, 0.2);
+}
+
+.citation {
+  max-width: 860px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.citation .filet {
+  margin: 0 auto 32px;
+  width: 120px;
+  height: 3px;
+}
+
+.citation p {
+  font-family: var(--serif);
+  font-size: clamp(24px, 3vw, 32px);
+  line-height: 1.4;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--bleu);
+  text-wrap: balance;
+}
+
+.citation footer {
+  margin-top: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--g700);
+}
+
+/* ---------- 19. Bandeau d’adhésion : aplat orange (charte § 9, fond 3) ---------- */
+.appel {
+  position: relative;
+  background: var(--orange);
+  color: var(--bleu);
+}
+
+/* Filet vertical : sur fond orange, le segment orange devient bleu. */
+.appel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 5px;
+  background: linear-gradient(
+    180deg,
+    var(--rouge-filet) 0 25%,
+    #ffffff 25% 50%,
+    var(--bleu) 50% 75%,
+    var(--vert) 75% 100%
+  );
+}
+
+.appel .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px 48px;
+  flex-wrap: wrap;
+  padding-block: 56px;
+}
+
+.appel .h2 {
+  color: var(--bleu);
+}
+
+.appel p {
+  margin-top: 8px;
+  max-width: 60ch;
+  font-size: 17px;
+  line-height: 28px;
+  color: var(--bleu);
+}
+
+.appel .surtitre {
+  color: var(--bleu);
+  margin-bottom: 12px;
+}
+
+/* ---------- 20. Pied de page ---------- */
+.pied {
+  background: var(--bleu-profond);
+  color: var(--sur-bleu);
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.pied__colonnes {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) repeat(3, minmax(0, 2.6fr));
+  gap: 40px;
+  padding-block: 64px 48px;
+}
+
+/* Le filet tricolore signe le bas de page : 5 px (charte § 1). */
+.pied > .filet {
+  height: 5px;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.pied__logo {
+  width: 240px;
+  height: auto;
+}
+
+.pied__accroche {
+  margin-top: 20px;
+  max-width: 34ch;
+}
+
+.pied h2 {
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.pied li + li {
+  margin-top: 8px;
+}
+
+.pied a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.pied__reseaux {
+  display: flex;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.pied__reseaux a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  color: #ffffff;
+}
+
+.pied__reseaux a:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.pied__bas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px 40px;
+  padding-block: 24px 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--sur-bleu-doux);
+}
+
+.pied__bas p {
+  max-width: 72ch;
+}
+
+.pied__liens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+.pied .a-completer {
+  background: transparent;
+  border-color: rgba(255, 196, 120, 0.6);
+  color: #ffc478;
+}
+
+/* ---------- 21. Président ---------- */
+.portrait-bio {
+  display: grid;
+  grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 80px);
+  align-items: start;
+}
+
+.portrait {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--r-md);
+  background: var(--bleu-voile);
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(0, 30, 88, 0.07) 0 1.5px,
+    transparent 1.5px 13px
+  );
+  border-top: 5px solid var(--orange);
+}
+
+.portrait span {
+  font-family: var(--serif);
+  font-size: 88px;
+  line-height: 1;
+  font-weight: 600;
+  color: var(--bleu);
+  letter-spacing: -0.03em;
+}
+
+@media (min-width: 901px) {
+  .portrait-bio > :first-child {
+    position: sticky;
+    top: calc(var(--entete) + 32px);
+  }
+}
+
+.portrait-bio__legende {
+  margin-top: 12px;
+}
+
+.portrait-bio__nom {
+  margin-top: 20px;
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+  color: var(--bleu);
+}
+
+/* Lettre du président */
+.lettre {
+  max-width: 680px;
+}
+
+.lettre p {
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.75;
+  color: var(--encre);
+  text-wrap: pretty;
+}
+
+.lettre p + p {
+  margin-top: 1.1em;
+}
+
+.lettre .lettre__salut {
+  font-weight: 600;
+  color: var(--bleu);
+}
+
+.signature {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--g300);
+}
+
+.signature__pastille {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--bleu);
+  color: #ffffff;
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.signature b {
+  display: block;
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 600;
+  color: var(--bleu);
+}
+
+.signature div span {
+  font-size: 14px;
+  color: var(--g700);
+}
+
+/* ---------- 22. Adhésion : étapes ---------- */
+.etapes {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+}
+
+.etapes li {
+  position: relative;
+  padding: 0 24px 0 0;
+}
+
+.etapes li::before {
+  content: "";
+  position: absolute;
+  top: 23px;
+  left: 48px;
+  right: 0;
+  height: 2px;
+  background: var(--g300);
+}
+
+.etapes li:last-child::before {
+  display: none;
+}
+
+.etapes b {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bleu);
+  color: #ffffff;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.etapes li:last-child b {
+  background: var(--vert);
+}
+
+.etapes p {
+  margin-top: 16px;
+  max-width: 24ch;
+  font-size: 17px;
+  line-height: 26px;
+  color: var(--encre);
+}
+
+/* ---------- 23. Contact ---------- */
+.canaux {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.canal {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 28px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--g300);
+  background: #ffffff;
+}
+
+.canal--principal {
+  border-color: var(--bleu);
+  box-shadow: var(--ombre-moyenne);
+}
+
+.canal__icone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 8px;
+  border-radius: 50%;
+  background: var(--bleu-voile);
+  color: var(--bleu);
+}
+
+.canal__libelle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--g700);
+}
+
+.canal__valeur {
+  font-family: var(--serif);
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 600;
+  color: var(--bleu);
+  overflow-wrap: anywhere;
+}
+
+a.canal__valeur:hover {
+  color: var(--orange-texte);
+}
+
+.canal__note {
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--g700);
+}
+
+.adresse {
+  font-style: normal;
+  font-size: 17px;
+  line-height: 28px;
+  color: var(--g700);
+}
+
+/* ---------- 24. Partenaires ---------- */
+.atouts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+}
+
+.atouts li {
+  padding-top: 20px;
+  border-top: 2px solid var(--bleu);
+}
+
+.atouts .h3 {
+  font-size: 21px;
+  line-height: 28px;
+}
+
+.atouts p {
+  margin-top: 10px;
+  color: var(--g700);
+}
+
+.formules {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.formules li {
+  padding: 24px;
+  border-radius: var(--r-md);
+  background: #ffffff;
+  border: 1px solid var(--g300);
+}
+
+.formules p {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--g700);
+}
+
+.parlons {
+  max-width: 720px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.parlons .chapo {
+  margin: 16px auto 0;
+}
+
+.parlons .actions {
+  justify-content: center;
+}
+
+/* ---------- 25. Actualités ---------- */
+.a-venir {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.a-venir li {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px;
+  border-radius: var(--r-md);
+  background: #ffffff;
+  border: 1px solid var(--g300);
+}
+
+.a-venir .canal__icone {
+  margin-bottom: 4px;
+}
+
+.a-venir p {
+  color: var(--g700);
+}
+
+/* ---------- 26. Pages légales ---------- */
+.prose {
+  max-width: 720px;
+}
+
+.prose section + section {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid var(--g100);
+}
+
+.prose .h3 {
+  margin-bottom: 12px;
+}
+
+.prose p + p {
+  margin-top: 12px;
+}
+
+.prose p {
+  color: var(--g700);
+}
+
+/* ---------- 27. 404 ---------- */
+.introuvable {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+/* ---------- 28. Adaptations ---------- */
+@media (max-width: 1100px) {
+  .nav-principale ul,
+  .nav-principale > .bouton {
+    display: none;
+  }
+
+  .burger {
+    display: inline-flex;
+  }
+
+  .pied__colonnes {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .pied__colonnes > :first-child {
+    grid-column: 1 / -1;
+  }
+
+  .formules {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .programme {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 24px;
+  }
+
+  .programme .pastilles {
+    grid-column: 1 / 3;
+    grid-row: 2;
+  }
+
+  .programme__fleche {
+    grid-column: 3;
+    grid-row: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  :root {
+    --entete: 68px;
+  }
+
+  .logo img {
+    height: 42px;
+  }
+
+  .heros__grille {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .meridien {
+    justify-self: start;
+    max-width: 100%;
+  }
+
+  .deux-colonnes,
+  .colonne-etroite,
+  .portrait-bio,
+  .fiches > li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .portrait {
+    max-width: 260px;
+  }
+
+  .objectifs .wrap {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .objectifs dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 0;
+  }
+
+  .annees {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .annees li {
+    padding: 0 0 24px 36px;
+  }
+
+  .annees li::before {
+    top: 0;
+    bottom: 0;
+    left: 7px;
+    right: auto;
+    width: 2px;
+    height: auto;
+  }
+
+  .annees li:last-child::before {
+    bottom: auto;
+    height: 8px;
+  }
+
+  .annees li:first-child::before {
+    top: 8px;
+  }
+
+  .annees span {
+    margin-top: 2px;
+  }
+
+  .axes,
+  .axes-detail,
+  .atouts,
+  .canaux,
+  .a-venir {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .etapes {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .etapes li {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 20px;
+    align-items: center;
+    padding: 0 0 28px;
+  }
+
+  .etapes li::before {
+    top: 48px;
+    bottom: 0;
+    left: 23px;
+    right: auto;
+    width: 2px;
+    height: auto;
+  }
+
+  .etapes p {
+    margin-top: 0;
+    max-width: none;
+  }
+
+  .fiches .livrables {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .fiches .livrables li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .fiches .livrables .coche {
+    margin-bottom: 0;
+    flex: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .service__lieu {
+    display: none;
+  }
+
+  .service .wrap {
+    justify-content: flex-end;
+  }
+
+  .heros .actions .bouton,
+  .actions .bouton {
+    width: 100%;
+  }
+
+  .heros .h1 span {
+    display: inline;
+  }
+
+  .programme {
+    grid-template-columns: minmax(0, 1fr) 24px;
+    gap: 8px 16px;
+  }
+
+  .programme__but {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .programme .pastilles {
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 6px;
+  }
+
+  .pied__colonnes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .formules {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .appel .bouton {
+    width: 100%;
+  }
+
+  .encadre {
+    padding: 20px;
+  }
+
+  .bouton {
+    white-space: normal;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  .service,
+  .entete,
+  .appel,
+  .pied {
+    display: none;
+  }
+
+  .heros,
+  .tete-page,
+  .sombre {
+    background: none;
+    color: var(--encre);
+  }
+
+  * {
+    box-shadow: none !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .meridien {
+    max-width: 260px;
+  }
+}
+
+@media (max-width: 640px) {
+  .meridien {
+    max-width: 220px;
+  }
+}
