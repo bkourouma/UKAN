@@ -247,7 +247,7 @@ The header is sticky (80px, 68px below 960px) under a 36px deep-blue service bar
 
 ## Elevation & Depth
 
-The cloth is flat. Depth comes from tone (blue cloth, white strips, pale-blue strips) and from weft blocks behind content, not from shadows. One lifted object exists: the membership loom panel on the blue cloth, with a deep blue-black shadow, removed on phones where the panel runs full bleed. Charter shadows (légère, moyenne, forte) are declared as tokens but no shipped component uses them.
+The cloth is flat. Depth comes from tone (blue cloth, white strips, pale-blue strips) and from weft blocks behind content, not from shadows. One lifted object exists: the membership loom panel on the blue cloth, with a deep blue-black shadow, removed on phones where the panel runs full bleed. The charter's three shadows (légère, moyenne, forte) and its 8px card radius are deliberately not tokens of this system: nothing on the flat cloth uses them.
 
 ### Shadow Vocabulary
 - **Loom panel** (`box-shadow: 0 24px 48px rgba(0, 10, 40, 0.35)`): the membership panel on the cloth only.

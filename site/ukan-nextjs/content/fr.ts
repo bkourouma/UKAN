@@ -93,19 +93,9 @@ export const fr = {
 
   home: {
     hero: {
-      place: "Abidjan, Côte d’Ivoire",
       title: ["Vous avez étudié au Royaume-Uni.", "Votre réseau est ici."],
       lede: "UKAN rassemble les alumni des institutions britanniques établis en Côte d’Ivoire : réseautage, mentorat, leadership, opportunités professionnelles et coopération entre les deux pays.",
       secondary: "Découvrir le réseau",
-      meridian: {
-        caption: "Londres et Abidjan, presque sur le même méridien.",
-        greenwich: "Méridien de Greenwich",
-        londonCoord: "51°30′ N, 0°07′ O",
-        abidjanCoord: "5°19′ N, 4°02′ O",
-        london: "Londres",
-        abidjan: "Abidjan",
-        distance: "5 140 km",
-      },
     },
     figures: {
       title: "Les objectifs du Plan 2026–2030",
@@ -344,7 +334,6 @@ export const fr = {
         "Biographie d’Antoine Kemonsei, président de UKAN : expert ivoirien en développement touristique et en gestion des destinations.",
     },
     header: {
-      kicker: "Le président",
       lede: "Expert ivoirien en développement touristique et en gestion des destinations.",
     },
     bio: {
@@ -375,7 +364,6 @@ export const fr = {
       description: "Un message d’Antoine Kemonsei, président de UKAN, aux membres et partenaires du réseau.",
     },
     header: {
-      kicker: "Le président",
       title: "Mot du Président",
       lede: "Un message d’Antoine Kemonsei aux membres, partenaires et amis de UKAN.",
     },
@@ -402,7 +390,6 @@ export const fr = {
     },
     deliverablesLabel: "Livrables",
     mentor: {
-      kicker: "Appel à candidatures",
       title: "Devenez mentor UKAN",
       text: "Le programme vise 50 mentors à l’horizon 2030. Deux heures par mois suffisent pour accompagner un jeune alumni dans son parcours professionnel. Écrivez-nous en indiquant votre secteur et votre disponibilité.",
       cta: "Proposer ma candidature",

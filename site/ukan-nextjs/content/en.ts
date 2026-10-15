@@ -95,19 +95,9 @@ export const en: Dict = {
 
   home: {
     hero: {
-      place: "Abidjan, Côte d’Ivoire",
       title: ["You studied in the United Kingdom.", "Your network is here."],
       lede: "UKAN brings together alumni of UK institutions based in Côte d’Ivoire: networking, mentoring, leadership, professional opportunities and cooperation between the two countries.",
       secondary: "About the network",
-      meridian: {
-        caption: "London and Abidjan, on almost the same meridian.",
-        greenwich: "Greenwich meridian",
-        londonCoord: "51°30′ N, 0°07′ W",
-        abidjanCoord: "5°19′ N, 4°02′ W",
-        london: "London",
-        abidjan: "Abidjan",
-        distance: "5,140 km",
-      },
     },
     figures: {
       title: "Targets of the 2026–2030 Plan",
@@ -346,7 +336,6 @@ export const en: Dict = {
         "Biography of Antoine Kemonsei, president of UKAN: Ivorian expert in tourism development and destination management.",
     },
     header: {
-      kicker: "The president",
       lede: "Ivorian expert in tourism development and destination management.",
     },
     bio: {
@@ -377,7 +366,6 @@ export const en: Dict = {
       description: "A message from Antoine Kemonsei, president of UKAN, to the members and partners of the network.",
     },
     header: {
-      kicker: "The president",
       title: "President’s Message",
       lede: "A message from Antoine Kemonsei to the members, partners and friends of UKAN.",
     },
@@ -404,7 +392,6 @@ export const en: Dict = {
     },
     deliverablesLabel: "Deliverables",
     mentor: {
-      kicker: "Call for applications",
       title: "Become a UKAN mentor",
       text: "The programme aims for 50 mentors by 2030. Two hours a month are enough to support a young alumnus or alumna in their career. Write to us with your sector and your availability.",
       cta: "Apply to be a mentor",
