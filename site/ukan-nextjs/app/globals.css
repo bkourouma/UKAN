@@ -22,6 +22,13 @@
   --rouge-alerte: #c8102e;
   --ambre: #8a5100;
 
+  /* Couleurs de service, hors charte : variantes du vert et de l’ambre,
+     lisibles sur l’étoffe bleue, et fond de l’étiquette « à compléter » */
+  --vert-sur-bleu: #3fae6f;
+  --vert-sur-bleu-texte: #7fd3a3;
+  --ambre-voile: #fff8ec;
+  --ambre-sur-bleu: #ffc478;
+
   --encre: #0e1420;
   --g700: #47536b;
   --g500: #6e7c96;
@@ -559,7 +566,7 @@ input {
   padding: 1px 8px;
   border: 1px dashed var(--ambre);
   border-radius: 3px;
-  background: #fff8ec;
+  background: var(--ambre-voile);
   color: var(--ambre);
   font-family: var(--sans);
   font-size: 12px;
@@ -1612,8 +1619,8 @@ a.bande__corps:hover .bande__nom {
 
 .pied .a-completer {
   background: transparent;
-  border-color: rgba(255, 196, 120, 0.6);
-  color: #ffc478;
+  border-color: color-mix(in srgb, var(--ambre-sur-bleu) 60%, transparent);
+  color: var(--ambre-sur-bleu);
 }
 
 /* ---------- 19. Blocs de contenu (pages intérieures) ---------- */
@@ -2606,7 +2613,7 @@ a.canal__valeur:hover {
 }
 
 .toile .etapes li:last-child::before {
-  background: #3fae6f;
+  background: var(--vert-sur-bleu);
 }
 
 .toile .etapes b {
@@ -2614,7 +2621,7 @@ a.canal__valeur:hover {
 }
 
 .toile .etapes li:last-child b {
-  color: #7fd3a3;
+  color: var(--vert-sur-bleu-texte);
 }
 
 .toile .etapes p {

@@ -323,6 +323,70 @@
           "#b4c5e3",
           "#e7effc"
         ]
+      },
+      "vert-sur-bleu": {
+        "role": "tertiary",
+        "displayName": "Green on Blue",
+        "canonical": "#3fae6f",
+        "oklch": "oklch(67.1% 0.138 154.9)",
+        "tonalRamp": [
+          "#001005",
+          "#002d15",
+          "#034d29",
+          "#03703e",
+          "#1b9457",
+          "#49b777",
+          "#73de9c",
+          "#d6f9e1"
+        ]
+      },
+      "vert-sur-bleu-texte": {
+        "role": "tertiary",
+        "displayName": "Green Text on Blue",
+        "canonical": "#7fd3a3",
+        "oklch": "oklch(80.0% 0.108 157.8)",
+        "tonalRamp": [
+          "#000f06",
+          "#012c18",
+          "#024d2d",
+          "#0e6f45",
+          "#3b9064",
+          "#5fb384",
+          "#85daa9",
+          "#dbf7e5"
+        ]
+      },
+      "ambre-voile": {
+        "role": "neutral",
+        "displayName": "Amber Veil",
+        "canonical": "#fff8ec",
+        "oklch": "oklch(98.1% 0.018 81.3)",
+        "tonalRamp": [
+          "#0f0a04",
+          "#28231a",
+          "#453f35",
+          "#635d52",
+          "#837c71",
+          "#a49e92",
+          "#cac3b7",
+          "#f1eeea"
+        ]
+      },
+      "ambre-sur-bleu": {
+        "role": "neutral",
+        "displayName": "Amber on Blue",
+        "canonical": "#ffc478",
+        "oklch": "oklch(85.8% 0.115 72.3)",
+        "tonalRamp": [
+          "#130800",
+          "#341f00",
+          "#593800",
+          "#805304",
+          "#a7711e",
+          "#ca9246",
+          "#f2b86c",
+          "#ffebd3"
+        ]
       }
     },
     "typographyMeta": {

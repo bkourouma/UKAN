@@ -22,6 +22,10 @@ colors:
   blanc: "#ffffff"
   sur-bleu: "#d3dbea"
   sur-bleu-doux: "#9fb0cf"
+  vert-sur-bleu: "#3fae6f"
+  vert-sur-bleu-texte: "#7fd3a3"
+  ambre-voile: "#fff8ec"
+  ambre-sur-bleu: "#ffc478"
 typography:
   display:
     fontFamily: "Source Serif 4, Georgia, serif"
@@ -153,7 +157,7 @@ components:
     rounded: "{rounded.none}"
     padding: "24px 18px 28px"
   todo-tag:
-    backgroundColor: "#fff8ec"
+    backgroundColor: "{colors.ambre-voile}"
     textColor: "{colors.ambre}"
     rounded: "3px"
     padding: "1px 8px"
@@ -206,6 +210,13 @@ A committed single-hue cloth (UKAN blue and its tints) with two charter accents 
 - **On-Blue Text** (sur-bleu) and **On-Blue Muted** (sur-bleu-doux): body and note text on the cloth.
 - **Tricolour Red** (rouge-filet): the first segment of the tricolour rule and error states only. The logo's own red (#FC0213) stays in the logo.
 - **Amber** (ambre): the "à compléter" placeholder tag only.
+
+### Service colours, outside the charter
+Not charter colours: legible variants of the green and the amber for the blue cloth, and the placeholder tag's ground. They serve one element each and never become accents or weft blocks.
+- **Green on Blue** (vert-sur-bleu): the green weft head of the last step in a sequence set on the blue cloth.
+- **Green Text on Blue** (vert-sur-bleu-texte): that last step's numeral on the blue cloth.
+- **Amber Veil** (ambre-voile): background of the "à compléter" placeholder tag.
+- **Amber on Blue** (ambre-sur-bleu): the placeholder tag's text on the dark footer, with its dashed border at 60 % (color-mix).
 
 Seams are translucent: white at 8 % on blue, UKAN Blue at 7 % on white.
 
@@ -294,7 +305,7 @@ White sticky bar, horizontal logo at 56px, Plex 15px/500 blue items. The current
 A full-width orange field with a 5px vertical tricolour thread at its left edge (orange segment turned blue), blue headline and text, and a large blue button.
 
 ### Placeholder Tag
-"À compléter": 12px/600 amber text on pale amber with a 1px dashed amber border; shown wherever official information is missing, never replaced by invented content.
+"À compléter": 12px/600 amber text on the amber veil with a 1px dashed amber border (on the dark footer: transparent ground, Amber on Blue text, its border at 60 %); shown wherever official information is missing, never replaced by invented content.
 
 ## Do's and Don'ts
 
