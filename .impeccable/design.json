@@ -1,0 +1,575 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-15T12:29:45+00:00",
+  "title": "Design System: UKAN Côte d’Ivoire",
+  "extensions": {
+    "colorMeta": {
+      "bleu": {
+        "role": "primary",
+        "displayName": "UKAN Blue",
+        "canonical": "#001e58",
+        "oklch": "oklch(25.9% 0.111 260.8)",
+        "tonalRamp": [
+          "#000234",
+          "#001e58",
+          "#1f3e74",
+          "#405d90",
+          "#637eac",
+          "#879fc9",
+          "#b0c5e8",
+          "#e7effd"
+        ]
+      },
+      "bleu-profond": {
+        "role": "primary",
+        "displayName": "Deep Night Blue",
+        "canonical": "#00153e",
+        "oklch": "oklch(21.1% 0.084 259.7)",
+        "tonalRamp": [
+          "#00062c",
+          "#09224a",
+          "#284066",
+          "#485e82",
+          "#6a7e9f",
+          "#8da0bc",
+          "#b6c5dd",
+          "#e9eff8"
+        ]
+      },
+      "bleu-clair": {
+        "role": "primary",
+        "displayName": "Loom Blue",
+        "canonical": "#0a2f72",
+        "oklch": "oklch(32.7% 0.123 261.2)",
+        "tonalRamp": [
+          "#000135",
+          "#001d5a",
+          "#183c7d",
+          "#3a5c99",
+          "#5d7db5",
+          "#829fd2",
+          "#acc5f1",
+          "#e5efff"
+        ]
+      },
+      "orange": {
+        "role": "secondary",
+        "displayName": "Ivory Orange",
+        "canonical": "#ff6b01",
+        "oklch": "oklch(70.2% 0.200 45.0)",
+        "tonalRamp": [
+          "#280000",
+          "#4e0000",
+          "#771800",
+          "#a23300",
+          "#cf4e00",
+          "#fe6a00",
+          "#ff9958",
+          "#ffdfc4"
+        ]
+      },
+      "orange-texte": {
+        "role": "secondary",
+        "displayName": "Burnt Orange Text",
+        "canonical": "#c24e00",
+        "oklch": "oklch(57.0% 0.164 44.4)",
+        "tonalRamp": [
+          "#280000",
+          "#4d0000",
+          "#751b00",
+          "#9f3700",
+          "#c85615",
+          "#e77d4d",
+          "#ffa87e",
+          "#ffe4d1"
+        ]
+      },
+      "orange-voile": {
+        "role": "secondary",
+        "displayName": "Orange Veil",
+        "canonical": "#fff1e6",
+        "oklch": "oklch(96.6% 0.021 60.8)",
+        "tonalRamp": [
+          "#0d0b09",
+          "#272320",
+          "#443f3b",
+          "#635c57",
+          "#847c75",
+          "#a69c95",
+          "#cdc2b8",
+          "#f4ede8"
+        ]
+      },
+      "vert": {
+        "role": "tertiary",
+        "displayName": "Ivory Green",
+        "canonical": "#02743a",
+        "oklch": "oklch(49.0% 0.127 152.3)",
+        "tonalRamp": [
+          "#001400",
+          "#003006",
+          "#00501e",
+          "#007138",
+          "#3e915a",
+          "#6ab17f",
+          "#98d5a8",
+          "#ddf6e3"
+        ]
+      },
+      "vert-voile": {
+        "role": "tertiary",
+        "displayName": "Green Veil",
+        "canonical": "#e6f2eb",
+        "oklch": "oklch(95.0% 0.016 160.6)",
+        "tonalRamp": [
+          "#060d09",
+          "#1e2621",
+          "#39423d",
+          "#56605b",
+          "#76807a",
+          "#96a29b",
+          "#bcc7c1",
+          "#eaf0ed"
+        ]
+      },
+      "rouge-filet": {
+        "role": "neutral",
+        "displayName": "Tricolour Red",
+        "canonical": "#c8102e",
+        "oklch": "oklch(53.0% 0.207 22.3)",
+        "tonalRamp": [
+          "#310000",
+          "#5a0000",
+          "#850009",
+          "#b30023",
+          "#d93944",
+          "#f86a6b",
+          "#ff9996",
+          "#ffdedb"
+        ]
+      },
+      "ambre": {
+        "role": "neutral",
+        "displayName": "Amber",
+        "canonical": "#8a5100",
+        "oklch": "oklch(49.0% 0.110 65.1)",
+        "tonalRamp": [
+          "#1f0100",
+          "#3f1700",
+          "#623200",
+          "#864e00",
+          "#a67037",
+          "#c59362",
+          "#e8ba8f",
+          "#feebd9"
+        ]
+      },
+      "encre": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#0e1420",
+        "oklch": "oklch(19.2% 0.026 263.7)",
+        "tonalRamp": [
+          "#060b16",
+          "#1e2430",
+          "#3a404c",
+          "#585e69",
+          "#787d88",
+          "#9a9fa8",
+          "#c0c4cc",
+          "#edeef1"
+        ]
+      },
+      "g700": {
+        "role": "neutral",
+        "displayName": "Slate 700",
+        "canonical": "#47536b",
+        "oklch": "oklch(44.2% 0.043 264.0)",
+        "tonalRamp": [
+          "#050b18",
+          "#1b2435",
+          "#354055",
+          "#525e75",
+          "#727d94",
+          "#949fb3",
+          "#bbc4d7",
+          "#eaeff7"
+        ]
+      },
+      "g500": {
+        "role": "neutral",
+        "displayName": "Slate 500",
+        "canonical": "#6e7c96",
+        "oklch": "oklch(58.4% 0.043 262.8)",
+        "tonalRamp": [
+          "#060b16",
+          "#1c2433",
+          "#364053",
+          "#525e74",
+          "#707e98",
+          "#929fb7",
+          "#b8c5db",
+          "#e9eff9"
+        ]
+      },
+      "g300": {
+        "role": "neutral",
+        "displayName": "Seam Grey 300",
+        "canonical": "#c9d2e0",
+        "oklch": "oklch(86.1% 0.022 259.2)",
+        "tonalRamp": [
+          "#090b0f",
+          "#212429",
+          "#3c4046",
+          "#595e66",
+          "#777e87",
+          "#989faa",
+          "#bcc5d2",
+          "#eaeff5"
+        ]
+      },
+      "g100": {
+        "role": "neutral",
+        "displayName": "Grey 100",
+        "canonical": "#edf1f7",
+        "oklch": "oklch(95.7% 0.009 258.3)",
+        "tonalRamp": [
+          "#090b0f",
+          "#212429",
+          "#3d4045",
+          "#5a5e63",
+          "#7a7d83",
+          "#9b9fa4",
+          "#c0c4ca",
+          "#edeff2"
+        ]
+      },
+      "g50": {
+        "role": "neutral",
+        "displayName": "Grey 50",
+        "canonical": "#f7f9fc",
+        "oklch": "oklch(98.1% 0.005 258.3)",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#232426",
+          "#3e4042",
+          "#5c5e60",
+          "#7c7d80",
+          "#9d9ea1",
+          "#c2c4c7",
+          "#edeef0"
+        ]
+      },
+      "bleu-voile": {
+        "role": "neutral",
+        "displayName": "Pale Blue Veil",
+        "canonical": "#e8edf6",
+        "oklch": "oklch(94.5% 0.013 262.4)",
+        "tonalRamp": [
+          "#080b11",
+          "#21242b",
+          "#3c4047",
+          "#5a5e65",
+          "#797d85",
+          "#9a9fa7",
+          "#bfc4cd",
+          "#eceef3"
+        ]
+      },
+      "blanc": {
+        "role": "neutral",
+        "displayName": "White Strip",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#7d7d7d",
+          "#9e9e9e",
+          "#c4c4c4",
+          "#eeeeee"
+        ]
+      },
+      "sur-bleu": {
+        "role": "neutral",
+        "displayName": "On-Blue Text",
+        "canonical": "#d3dbea",
+        "oklch": "oklch(89.0% 0.022 263.2)",
+        "tonalRamp": [
+          "#090b0e",
+          "#222429",
+          "#3c4046",
+          "#595e66",
+          "#787d87",
+          "#989faa",
+          "#bdc4d2",
+          "#ebeff6"
+        ]
+      },
+      "sur-bleu-doux": {
+        "role": "neutral",
+        "displayName": "On-Blue Muted",
+        "canonical": "#9fb0cf",
+        "oklch": "oklch(75.5% 0.049 262.5)",
+        "tonalRamp": [
+          "#060b15",
+          "#1d2431",
+          "#374051",
+          "#535e73",
+          "#707e97",
+          "#8f9fbc",
+          "#b4c5e3",
+          "#e7effc"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "One per page: hero (clamp 42–80px) and page headers (clamp 40–72px), white on the cloth."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Strip, panel and subsection titles (21–26px range in use)."
+      },
+      "title-sm": {
+        "displayName": "Strip Title",
+        "purpose": "Text-strip and partner-asset titles."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "One per section head, max 58ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text, max 66ch."
+      },
+      "body-sm": {
+        "displayName": "Small",
+        "purpose": "Secondary text, notes, signatures."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Field labels above inputs, in UKAN Blue."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Captions, status lines, footer base."
+      }
+    },
+    "seams": [
+      {
+        "name": "couture",
+        "value": "rgba(255, 255, 255, 0.08)",
+        "purpose": "1px strip seams on the blue cloth, every 1/12 of the container."
+      },
+      {
+        "name": "couture-claire",
+        "value": "rgba(0, 30, 88, 0.07)",
+        "purpose": "The same seams continued under light sections."
+      }
+    ],
+    "shadows": [
+      {
+        "name": "ombre-panneau",
+        "value": "0 24px 48px rgba(0, 10, 40, 0.35)",
+        "purpose": "The loom panel on the cloth only; removed on phones."
+      },
+      {
+        "name": "focus-halo",
+        "value": "0 0 0 3px rgba(0, 30, 88, 0.1)",
+        "purpose": "Input focus, with a 2px blue border."
+      },
+      {
+        "name": "focus-ring",
+        "value": "outline: 3px solid #ff6b01; outline-offset: 3px",
+        "purpose": "Site-wide keyboard focus."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "All transitions and the shuttle entrance."
+      },
+      {
+        "name": "navette",
+        "value": "clip-path inset(0 100% 0 0) to inset(0), 1.1s, delay 0.15s + i × 0.09s",
+        "purpose": "One-time entrance of hero and page-header weft blocks; disabled under reduced motion."
+      },
+      {
+        "name": "tissage",
+        "value": "transform scaleY(0→1) 0.5s, background-color 0.3s",
+        "purpose": "The loom selvedge weaving one block per answered field, turning green when ready."
+      },
+      {
+        "name": "control",
+        "value": "0.15s",
+        "purpose": "Button and input colour/border changes."
+      },
+      {
+        "name": "arrow-slide",
+        "value": "translateX(4px) 0.25s",
+        "purpose": "Arrow on action links and programme strips on hover."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "nav",
+        "value": "1180px",
+        "purpose": "Burger menu; programme cloth to 4 strips."
+      },
+      {
+        "name": "stack",
+        "value": "960px",
+        "purpose": "All strip spans go full width; header 68px."
+      },
+      {
+        "name": "phone",
+        "value": "640px",
+        "purpose": "Loom shows 4 strips; hero weft becomes a 12px selvedge; panel full bleed."
+      }
+    ],
+    "grid": {
+      "strips": 12,
+      "stripsPhone": 4,
+      "container": "1440px",
+      "gutter": "clamp(20px, 6vw, 80px)"
+    },
+    "rootTokensCss": ":root{--bleu:#001e58;--orange:#ff6b01;--vert:#02743a;--bleu-profond:#00153e;--bleu-clair:#0a2f72;--bleu-voile:#e8edf6;--orange-texte:#c24e00;--rouge-filet:#c8102e;--g300:#c9d2e0;--g500:#6e7c96;--g700:#47536b;--encre:#0e1420;--sur-bleu:#d3dbea;--serif:'Source Serif 4',Georgia,serif;--sans:'IBM Plex Sans','Segoe UI',Arial,sans-serif;--ease:cubic-bezier(0.16,1,0.3,1);}"
+  },
+  "components": [
+    {
+      "name": "Primary Button (orange)",
+      "kind": "button",
+      "refersTo": "button-primary-large",
+      "description": "The single orange action per screen; blue text, darkens to burnt orange with white text on hover.",
+      "html": "<button class=\"ds-btn ds-btn-orange\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg>Envoyer ma demande sur WhatsApp</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border:2px solid transparent;border-radius:4px;font-family:var(--sans,'IBM Plex Sans',sans-serif);font-size:15px;line-height:1.2;font-weight:600;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s;}.ds-btn:focus-visible{outline:3px solid #ff6b01;outline-offset:3px;}.ds-btn-orange{min-height:56px;padding:0 28px;font-size:17px;background:#ff6b01;color:#001e58;font-weight:700;}.ds-btn-orange:hover{background:#c24e00;color:#fff;}"
+    },
+    {
+      "name": "Blue Button",
+      "kind": "button",
+      "refersTo": "button-blue",
+      "description": "The everyday action: header join button, join band.",
+      "html": "<button class=\"ds-btn ds-btn-bleu\">Adhérer</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border:2px solid transparent;border-radius:4px;font-family:var(--sans,'IBM Plex Sans',sans-serif);font-size:15px;line-height:1.2;font-weight:600;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s;}.ds-btn:focus-visible{outline:3px solid #ff6b01;outline-offset:3px;}.ds-btn-bleu{background:#001e58;color:#fff;}.ds-btn-bleu:hover{background:#0a2f72;}"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action on white.",
+      "html": "<button class=\"ds-btn ds-btn-contour\">Écrire un e-mail</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border:2px solid transparent;border-radius:4px;font-family:var(--sans,'IBM Plex Sans',sans-serif);font-size:15px;line-height:1.2;font-weight:600;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s;}.ds-btn:focus-visible{outline:3px solid #ff6b01;outline-offset:3px;}.ds-btn-contour{background:transparent;color:#001e58;border-color:#001e58;}.ds-btn-contour:hover{background:#e8edf6;}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Label above, grey border at rest, 2px blue border and blue halo on focus.",
+      "html": "<label class=\"ds-champ\"><span class=\"ds-champ-libelle\">Nom complet</span><input class=\"ds-saisie\" placeholder=\"Awa Koné\"></label>",
+      "css": ".ds-champ{display:grid;gap:6px;font-family:'IBM Plex Sans',sans-serif;}.ds-champ-libelle{font-size:13px;line-height:18px;font-weight:600;color:#001e58;}.ds-saisie{min-height:48px;padding:0 14px;border:1px solid #c9d2e0;border-radius:4px;background:#fff;font:inherit;font-size:15px;color:#0e1420;transition:border-color .15s,box-shadow .15s;}.ds-saisie::placeholder{color:#6e7c96;}.ds-saisie:hover{border-color:#6e7c96;}.ds-saisie:focus{outline:none;border:2px solid #001e58;padding:0 13px;box-shadow:0 0 0 3px rgba(0,30,88,.1);}"
+    },
+    {
+      "name": "Choice Strips",
+      "kind": "chip",
+      "refersTo": "choice-strip",
+      "description": "Radio options as 48px strips; checked becomes solid UKAN blue.",
+      "html": "<div class=\"ds-choix\"><label><input type=\"radio\" name=\"ds-l\" checked><span>J’y ai étudié</span></label><label><input type=\"radio\" name=\"ds-l\"><span>Boursier Chevening</span></label></div>",
+      "css": ".ds-choix{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;font-family:'IBM Plex Sans',sans-serif;}.ds-choix label{position:relative;display:flex;}.ds-choix input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer;}.ds-choix span{flex:1;display:flex;align-items:center;min-height:48px;padding:8px 12px 8px 14px;border:1px solid #c9d2e0;border-radius:4px;background:#fff;color:#001e58;font-size:14px;line-height:18px;font-weight:500;transition:background-color .15s,border-color .15s,color .15s;}.ds-choix label:hover span{border-color:#001e58;}.ds-choix input:checked+span{background:#001e58;border-color:#001e58;color:#fff;}.ds-choix input:focus-visible+span{outline:3px solid #ff6b01;outline-offset:2px;}"
+    },
+    {
+      "name": "Main Navigation",
+      "kind": "nav",
+      "refersTo": "",
+      "description": "White bar, blue Plex items; the current page carries a 4px orange weft block; tricolour rule beneath.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">Le réseau</a><a href=\"#\" aria-current=\"page\">Programmes</a><a href=\"#\">Contact</a></nav><div class=\"ds-filet\"><i></i><i></i><i></i><i></i></div>",
+      "css": ".ds-nav{display:flex;gap:28px;padding:0 24px;background:#fff;font-family:'IBM Plex Sans',sans-serif;}.ds-nav a{position:relative;display:block;padding-block:28px;font-size:15px;line-height:24px;font-weight:500;color:#001e58;text-decoration:none;}.ds-nav a::after{content:'';position:absolute;left:0;right:0;bottom:0;height:4px;background:#ff6b01;transform:scaleY(0);transform-origin:bottom;transition:transform .25s cubic-bezier(0.16,1,0.3,1);}.ds-nav a:hover::after{transform:scaleY(.5);}.ds-nav a[aria-current=page]::after{transform:scaleY(1);}.ds-nav a:focus-visible{outline:3px solid #ff6b01;outline-offset:3px;}.ds-filet{display:grid;grid-template-columns:repeat(4,1fr);height:4px;}.ds-filet i:nth-child(1){background:#c8102e;}.ds-filet i:nth-child(2){background:#001e58;}.ds-filet i:nth-child(3){background:#ff6b01;}.ds-filet i:nth-child(4){background:#02743a;}"
+    },
+    {
+      "name": "Loom Panel with Selvedge",
+      "kind": "custom",
+      "refersTo": "loom-panel",
+      "description": "Signature: the white membership panel on the blue cloth; its left selvedge weaves one block per answered field and turns green when ready.",
+      "html": "<div class=\"ds-toile\"><div class=\"ds-panneau\"><div class=\"ds-lisiere ds-prete\"><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i></i></div><h3>Rejoindre le réseau</h3><p>Votre demande est prête.</p></div></div>",
+      "css": ".ds-toile{padding:40px;background:#001e58;background-image:linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:calc(100%/12) 100%;}.ds-panneau{position:relative;display:grid;gap:12px;padding:28px 28px 28px 44px;background:#fff;box-shadow:0 24px 48px rgba(0,10,40,.35);font-family:'IBM Plex Sans',sans-serif;}.ds-panneau h3{margin:0;font-family:'Source Serif 4',Georgia,serif;font-size:26px;line-height:32px;font-weight:600;color:#001e58;letter-spacing:-.01em;}.ds-panneau p{margin:0;font-size:13px;line-height:18px;color:#02743a;font-weight:600;}.ds-lisiere{position:absolute;top:0;bottom:0;left:0;width:14px;display:grid;grid-template-rows:repeat(4,1fr);background:#e8edf6;}.ds-lisiere i{border-bottom:1px solid #fff;background:#001e58;transform:scaleY(0);transform-origin:top;transition:transform .5s cubic-bezier(0.16,1,0.3,1),background-color .3s;}.ds-lisiere i.on{transform:scaleY(1);}.ds-prete i.on{background:#02743a;}.ds-panneau:hover .ds-lisiere i{transform:scaleY(1);}"
+    },
+    {
+      "name": "Text Strip",
+      "kind": "card",
+      "refersTo": "text-strip",
+      "description": "A square pale-blue strip headed by a 32x8 weft block; blue and orange-veil variants.",
+      "html": "<div class=\"ds-bande\"><h3>UKAN Mentoring</h3><p>Des aînés accompagnent les jeunes diplômés.</p></div>",
+      "css": ".ds-bande{padding:28px 24px 36px;background:#e8edf6;font-family:'IBM Plex Sans',sans-serif;transition:background-color .25s;}.ds-bande::before{content:'';display:block;width:32px;height:8px;margin-bottom:18px;background:#001e58;}.ds-bande h3{margin:0;font-family:'Source Serif 4',Georgia,serif;font-size:22px;line-height:28px;font-weight:600;color:#001e58;letter-spacing:-.01em;}.ds-bande p{margin:12px 0 0;color:#47536b;font-size:16px;line-height:26px;}.ds-bande:hover{background:#dfe6f2;}"
+    },
+    {
+      "name": "Tricolour Rule",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "The only ornament: four equal segments as selvedge (horizontal) or warp thread (vertical).",
+      "html": "<div class=\"ds-tri\"><i></i><i></i><i></i><i></i></div>",
+      "css": ".ds-tri{display:grid;grid-template-columns:repeat(4,1fr);height:5px;width:240px;}.ds-tri i:nth-child(1){background:#c8102e;}.ds-tri i:nth-child(2){background:#fff;outline:1px solid #e8edf6;}.ds-tri i:nth-child(3){background:#ff6b01;}.ds-tri i:nth-child(4){background:#02743a;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "L’étoffe (the woven cloth)",
+    "overview": "The network is a Kita strip cloth: each alumnus and each programme is a narrow strip sewn edge to edge. Every surface is a loom of 12 strips (4 on phones) with a visible 1px seam on each strip line. UKAN blue is the cloth and covers the dominant share of the surface; white strips carry reading; orange, green, pale blue and the lighter blue appear only as weft blocks, flat rectangles with square corners, staggered from strip to strip. The tricolour rule runs as warp threads and selvedges. This is construction, not folklore.\n\nDensity is calm and editorial: large warm serif headlines, everything small set in Plex, generous section rhythm, long text kept to 58 to 66 characters. Depth is almost absent; the cloth is flat, and the single lifted object is the membership loom panel. Motion is one shuttle pass on load and one interaction that weaves.\n\nThe world rejects the institutional template of a blue header over alternating sections of equal rounded cards, and it rejects \"Africa\" clichés (folkloric motifs, masks, savannah, wax-print or fabric textures) as well as a cold corporate register.",
+    "keyCharacteristics": [
+      "A 12-strip loom grid with visible seams, carried under light sections as well as on the blue cloth.",
+      "Square-cornered weft blocks as the only colour accents; never gradients, never textures.",
+      "The four-segment tricolour rule as selvedge (horizontal) and warp thread (vertical).",
+      "Source Serif 4 at 600 for every heading; IBM Plex Sans for everything else; no third face.",
+      "One orange action per screen, written in blue."
+    ],
+    "rules": [
+      {
+        "name": "The One Orange Button Rule",
+        "body": "Exactly one orange button per screen; text on orange is UKAN Blue, white only on the darkened hover. Every other action is blue, outlined, or a link.",
+        "section": "colors"
+      },
+      {
+        "name": "The Weft Block Rule",
+        "body": "Orange, green and the blue tints appear as flat rectangles that sit on strip lines (start column, span in strips, square corners). They are never gradients, blobs, rounded pills or textures.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tricolour Rule",
+        "body": "Four equal segments: red, white (blue under a white bar, blue again on an orange field), orange, green. 4px under the header, 5px at the foot, 3px under a quote, and as four 3px vertical threads at the hero's seam. It is the only ornament.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Faces Rule",
+        "body": "Every heading is Source Serif 4 at 600; every label, button, nav item and caption is Plex. No third typeface, no uppercase runs, no letter-spaced labels above headings.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Cloth Rule",
+        "body": "Nothing on the cloth floats except the loom panel. Shadows are always blue-tinted, never grey.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do set every new surface on the 12-strip loom and align blocks, columns and offsets to strip lines.",
+      "Do carry colour accents as square weft blocks staggered from strip to strip, with a different arrangement per page.",
+      "Do keep one orange button per screen with UKAN Blue text; use the blue or outline button for every other action.",
+      "Do use green for confirmation and readiness only.",
+      "Do put the tricolour rule under the header (4px) and at the foot (5px), switching the white segment to blue on white or orange grounds.",
+      "Do honour reduced motion: the only autonomous motion is the shuttle entrance (clip-path reveal, 1.1s, staggered 0.09s) of hero and page-header weft blocks."
+    ],
+    "donts": [
+      "Don't build the institutional template of a blue header over alternating sections of equal rounded cards.",
+      "Don't use zigzag, diamond, wax-print, mask or savannah motifs, or any fabric texture; the cloth is expressed through grid, seams and flat blocks.",
+      "Don't round panels, strips or blocks; radius belongs to controls only.",
+      "Don't write white on orange at rest, or use bright orange for text on white.",
+      "Don't use the logo red outside the logo, or a third typeface.",
+      "Don't add shadows to cloth content beyond the loom panel."
+    ]
+  }
+}
