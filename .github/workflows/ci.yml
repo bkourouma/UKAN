@@ -1,0 +1,53 @@
+# Intégration continue du site UKAN (site/ukan-nextjs), sur le modèle des sites
+# vitrines CliniquePro et ImmoTopia. Aucun secret : le build n'a besoin de rien.
+# Pas de tests automatisés dans ce projet : types et build (export statique).
+#
+# Ce workflow tourne sur chaque pull request qui touche le site, et il est aussi
+# appelé par deploy.yml (workflow_call) à chaque poussée sur main : les
+# vérifications passent donc toujours avant un déploiement.
+name: CI
+
+on:
+  pull_request:
+    paths:
+      - "site/ukan-nextjs/**"
+      - ".github/workflows/ci.yml"
+      - ".github/workflows/deploy.yml"
+  workflow_call:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Vérifications
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site/ukan-nextjs
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      # Même version majeure que l'image de production (Dockerfile : node:22-alpine).
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: site/ukan-nextjs/package-lock.json
+
+      - name: Installer les dépendances
+        run: npm ci --no-audit --no-fund
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Build (export statique)
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: https://ukan.allianceconsultants.net

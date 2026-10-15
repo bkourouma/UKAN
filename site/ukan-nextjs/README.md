@@ -17,6 +17,12 @@ npm run build    # export statique dans out/
 n’importe quel hébergeur (Cloudflare Pages, Netlify, OVH, serveur Apache/Nginx…).
 Aucun serveur Node n’est nécessaire.
 
+## Mise en ligne
+
+Le site est déployé automatiquement sur https://ukan.allianceconsultants.net à chaque fusion
+dans `main` (conteneur Docker sur le serveur « alliance », comme les autres sites vitrines).
+Procédure, mise en place et retour arrière : [`deploy/README.md`](deploy/README.md).
+
 ## Où modifier quoi
 
 | Je veux changer… | Fichier |
