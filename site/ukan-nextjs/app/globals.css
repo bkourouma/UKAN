@@ -225,9 +225,7 @@ input {
 
 .lien-action,
 .lien-clair {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  display: inline;
   font-weight: 600;
   text-decoration: underline;
   text-decoration-color: transparent;
@@ -251,6 +249,9 @@ input {
 
 .lien-action svg,
 .lien-clair svg {
+  display: inline-block;
+  margin-left: 8px;
+  vertical-align: -3px;
   transition: transform 0.25s var(--ease);
 }
 

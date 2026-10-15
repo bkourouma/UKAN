@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getDict } from "@/content";
 import { href, site, type Locale } from "@/lib/site";
-import { Arrow } from "../icons";
+import { ArrowLabel } from "../icons";
 import { PlanYears } from "../sections";
 import { JoinBand, PageHeader, SectionHead, Todo } from "../ui";
 
@@ -68,8 +68,7 @@ export function NetworkPage({ locale }: { locale: Locale }) {
               </p>
               <p>
                 <Link className="lien-action" href={href(locale, "president")}>
-                  {n.governance.board.link}
-                  <Arrow />
+                  <ArrowLabel text={n.governance.board.link} />
                 </Link>
               </p>
             </div>

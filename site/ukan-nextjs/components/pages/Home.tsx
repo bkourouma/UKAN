@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getDict } from "@/content";
 import { href, type Locale } from "@/lib/site";
-import { Arrow } from "../icons";
+import { ArrowLabel } from "../icons";
 import { Loom } from "../Loom";
 import { PlanYears, ProgrammeCloth, Targets } from "../sections";
 import { Chaine, Filet, JoinBand, Trame, type Bloc } from "../ui";
@@ -50,8 +50,7 @@ export function HomePage({ locale }: { locale: Locale }) {
               <p className="chapo">{h.hero.lede}</p>
               <p className="heros__suite">
                 <Link className="lien-clair" href={href(locale, "le-reseau")}>
-                  {h.hero.secondary}
-                  <Arrow />
+                  <ArrowLabel text={h.hero.secondary} />
                 </Link>
               </p>
             </div>
@@ -73,8 +72,7 @@ export function HomePage({ locale }: { locale: Locale }) {
           <ProgrammeCloth t={t} locale={locale} />
           <p className="etoffe__suite">
             <Link className="lien-action" href={href(locale, "programmes")}>
-              {h.programmes.link}
-              <Arrow />
+              <ArrowLabel text={h.programmes.link} />
             </Link>
           </p>
         </div>
@@ -99,8 +97,7 @@ export function HomePage({ locale }: { locale: Locale }) {
               </p>
               <p>
                 <Link className="lien-action" href={href(locale, "mot-du-president")}>
-                  {t.president.bio.link}
-                  <Arrow />
+                  <ArrowLabel text={t.president.bio.link} />
                 </Link>
               </p>
             </div>
@@ -118,8 +115,7 @@ export function HomePage({ locale }: { locale: Locale }) {
               <Targets t={t} />
               <p>
                 <Link className="lien-clair" href={href(locale, "le-reseau", "plan")}>
-                  {h.plan.link}
-                  <Arrow />
+                  <ArrowLabel text={h.plan.link} />
                 </Link>
               </p>
             </div>

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getDict } from "@/content";
 import { href, type Locale } from "@/lib/site";
-import { Arrow } from "../icons";
+import { ArrowLabel } from "../icons";
 import { JoinBand, PageHeader, SectionHead, Todo } from "../ui";
 
 function Portrait({ caption, todo }: { caption: string; todo: string }) {
@@ -43,8 +43,7 @@ export function PresidentPage({ locale }: { locale: Locale }) {
             </div>
             <p>
               <Link className="lien-action" href={href(locale, "mot-du-president")}>
-                {p.bio.link}
-                <Arrow />
+                <ArrowLabel text={p.bio.link} />
               </Link>
             </p>
           </div>
@@ -103,8 +102,7 @@ export function MessagePage({ locale }: { locale: Locale }) {
             </div>
             <p style={{ marginTop: 32, fontFamily: "var(--sans)", fontSize: 16 }}>
               <Link className="lien-action" href={href(locale, "president")}>
-                {m.link}
-                <Arrow />
+                <ArrowLabel text={m.link} />
               </Link>
             </p>
           </article>

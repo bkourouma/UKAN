@@ -109,6 +109,25 @@ export const Facebook = (p: IconProps) => (
   </Icon>
 );
 
+/**
+ * Libellé d’un lien d’action : la flèche reste collée au dernier mot,
+ * même quand le lien passe sur deux lignes.
+ */
+export function ArrowLabel({ text }: { text: string }) {
+  const i = text.lastIndexOf(" ");
+  const head = i === -1 ? "" : text.slice(0, i + 1);
+  const last = i === -1 ? text : text.slice(i + 1);
+  return (
+    <>
+      {head}
+      <span className="nowrap">
+        {last}
+        <Arrow className="lien__fleche" />
+      </span>
+    </>
+  );
+}
+
 /** Pastille de coche verte : confirmations et critères remplis (vert = 10 %). */
 export function Coche() {
   return (
