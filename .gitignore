@@ -1,0 +1,4 @@
+# Impeccable : fichiers de travail locaux
+.impeccable/review/
+.impeccable/questions/
+.impeccable/config.local.json
