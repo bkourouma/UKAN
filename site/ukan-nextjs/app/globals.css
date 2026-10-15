@@ -2631,6 +2631,9 @@ a.canal__valeur:hover {
   .tissu__gauche,
   .tissu__droite {
     grid-column: 1 / -1;
+  }
+
+  .tissu__texte {
     padding-right: 0;
   }
 
