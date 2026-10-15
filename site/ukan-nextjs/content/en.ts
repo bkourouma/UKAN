@@ -167,7 +167,7 @@ export const en: Dict = {
       id: "mentoring",
       name: "UKAN Mentoring",
       purpose: "Accelerate careers and pass experience between generations.",
-      deliverables: ["50 mentors mobilised", "Mentoring pathways", "Expert–young alumni matching"],
+      deliverables: ["2030 target: 50 mentors", "Mentoring pathways", "Expert–young alumni matching"],
     },
     {
       id: "leadership",

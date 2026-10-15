@@ -92,10 +92,12 @@ export function NetworkPage({ locale }: { locale: Locale }) {
           <ol className="axes-detail">
             {t.plan.axes.map((a, i) => (
               <li key={a.short}>
-                <small>
-                  {t.plan.axisLabel} {i + 1}
-                </small>
-                <h3 className="h4">{a.long}</h3>
+                <h3 className="h4">
+                  <span className="axes-detail__num">
+                    {t.plan.axisLabel} {i + 1}
+                  </span>{" "}
+                  {a.long}
+                </h3>
                 <p>{a.text}</p>
               </li>
             ))}

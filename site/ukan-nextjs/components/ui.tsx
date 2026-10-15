@@ -44,7 +44,7 @@ export function Trame({ blocs, className = "" }: { blocs: Bloc[]; className?: st
       {blocs.map(([col, span, top, height, color], i) => (
         <i
           key={i}
-          className={`trame__bloc trame__bloc--${color}`}
+          className={`trame__bloc trame__bloc--${color}${col + span - 1 === 12 ? " trame__bloc--bord" : ""}`}
           style={
             {
               "--col": col - 1,
@@ -60,19 +60,43 @@ export function Trame({ blocs, className = "" }: { blocs: Bloc[]; className?: st
   );
 }
 
-const enteteBlocs: Bloc[] = [
-  [12, 1, 0, 38, "orange"],
-  [11, 1, 38, 34, "clair"],
-  [12, 1, 72, 28, "vert"],
-  [10, 1, 72, 28, "voile"],
+/* Chaque page tire sa propre disposition de trame : jamais le même motif tamponné. */
+const enteteBlocs: Bloc[][] = [
+  [
+    [12, 1, 0, 38, "orange"],
+    [11, 1, 38, 34, "clair"],
+    [12, 1, 72, 28, "vert"],
+    [10, 1, 72, 28, "voile"],
+  ],
+  [
+    [11, 1, 0, 24, "vert"],
+    [12, 1, 24, 52, "orange"],
+    [10, 1, 52, 48, "clair"],
+  ],
+  [
+    [10, 2, 0, 18, "clair"],
+    [12, 1, 18, 30, "voile"],
+    [11, 1, 62, 38, "orange"],
+  ],
+  [
+    [12, 1, 0, 64, "clair"],
+    [11, 1, 46, 30, "orange"],
+    [12, 1, 76, 24, "vert"],
+  ],
 ];
+
+function choisir(title: string) {
+  let h = 0;
+  for (const c of title) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+  return enteteBlocs[h % enteteBlocs.length];
+}
 
 export function PageHeader({ title, lede }: { title: string; lede?: string }) {
   return (
     <header className="toile tete-page">
       <div className="wrap">
         <div className="metier">
-          <Trame blocs={enteteBlocs} className="trame--entete" />
+          <Trame blocs={choisir(title)} className="trame--entete" />
           <div className="tete-page__texte">
             <h1 className="h1">{title}</h1>
             {lede && <p className="chapo">{lede}</p>}

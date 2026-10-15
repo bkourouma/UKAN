@@ -275,7 +275,32 @@ input {
 }
 
 .section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   padding-block: var(--section);
+}
+
+/* Les coutures de l’étoffe courent aussi sous les sections claires,
+   alignées sur les 12 bandes du métier */
+.section > .wrap,
+.citation-bande > .wrap {
+  position: relative;
+}
+
+.section > .wrap::before,
+.citation-bande > .wrap::before {
+  content: "";
+  position: absolute;
+  top: -400px;
+  bottom: -400px;
+  left: var(--gouttiere);
+  right: var(--gouttiere);
+  z-index: -1;
+  pointer-events: none;
+  background-image: linear-gradient(90deg, var(--couture-claire) 1px, transparent 1px);
+  background-size: calc(100% / var(--bandes)) 100%;
+  border-right: 1px solid var(--couture-claire);
 }
 
 .section--gris {
@@ -353,6 +378,10 @@ input {
   width: calc(100% / 12 * var(--span));
   top: var(--top);
   height: var(--h);
+}
+
+.trame__bloc--bord {
+  width: calc(100% / 12 * var(--span) + (100vw - 100%) / 2);
 }
 
 .trame__bloc--orange {
@@ -780,6 +809,8 @@ input {
 .heros__texte {
   grid-column: 1 / 8;
   grid-row: 1;
+  align-self: start;
+  padding-top: 72px;
   padding-right: calc(100% / 7 * 0.6);
 }
 
@@ -973,48 +1004,52 @@ input {
   outline-offset: 2px;
 }
 
-/* La bande du visiteur */
-.echantillon {
-  display: grid;
-  gap: 8px;
+/* La lisière du panneau : la bande du visiteur, tissée bloc par bloc */
+.metier-panneau {
+  padding-left: calc(clamp(24px, 2.4vw, 36px) + 16px);
 }
 
-.echantillon__bande {
+.lisiere {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 14px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  height: 12px;
+  grid-template-rows: repeat(4, 1fr);
   background: var(--bleu-voile);
 }
 
-.echantillon__bande i {
-  border-right: 1px solid #ffffff;
+.lisiere i {
+  border-bottom: 1px solid #ffffff;
   background: var(--bleu);
-  transform: scaleX(0);
-  transform-origin: left;
+  transform: scaleY(0);
+  transform-origin: top;
   transition:
-    transform 0.45s var(--ease),
+    transform 0.5s var(--ease),
     background-color 0.3s;
 }
 
-.echantillon__bande i:last-child {
-  border-right: 0;
+.lisiere i:last-child {
+  border-bottom: 0;
 }
 
-.echantillon__bande i.tisse {
-  transform: scaleX(1);
+.lisiere i.tisse {
+  transform: scaleY(1);
 }
 
-.echantillon--pret .echantillon__bande i.tisse {
+/* Prête : la bande passe au vert, couleur des confirmations (charte § 1) */
+.lisiere--prete i.tisse {
   background: var(--vert);
 }
 
-.echantillon__etat {
+.metier-panneau__etat {
   font-size: 13px;
   line-height: 18px;
   color: var(--g700);
 }
 
-.echantillon--pret .echantillon__etat {
+.metier-panneau__etat--pret {
   color: var(--vert) !important;
   font-weight: 600;
 }
@@ -1073,7 +1108,7 @@ input {
 
 /* ---------- 13. L’étoffe des programmes ---------- */
 .etoffe {
-  background: #ffffff;
+  background: var(--g50);
 }
 
 .tete-section--large {
@@ -1101,11 +1136,15 @@ input {
   flex-direction: column;
   gap: 14px;
   height: 100%;
-  min-height: 460px;
+  min-height: 440px;
   padding: 24px 18px 28px;
   background: #ffffff;
-  border-right: 1px solid var(--g100);
+  border-right: 1px solid var(--g300);
   transition: background-color 0.25s;
+}
+
+.bande:first-child .bande__corps {
+  border-left: 1px solid var(--g300);
 }
 
 .bande:nth-child(3n + 1) .bande__corps {
@@ -1142,27 +1181,23 @@ input {
 }
 
 .bande__blocs {
-  display: grid;
-  gap: 4px;
   margin-top: auto;
+  border-top: 1px solid var(--g300);
 }
 
 .bande__blocs li {
-  padding: 10px 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--g300);
   font-size: 13px;
   line-height: 18px;
   font-weight: 500;
   color: var(--bleu);
-  background: var(--bleu-voile);
 }
 
+.bande:nth-child(3n + 1) .bande__blocs,
 .bande:nth-child(3n + 1) .bande__blocs li {
-  background: var(--bleu-clair);
+  border-color: rgba(255, 255, 255, 0.18);
   color: #ffffff;
-}
-
-.bande:nth-child(3n + 2) .bande__blocs li {
-  background: #ffffff;
 }
 
 /* Chaque bande porte un bloc de trame : orange, vert, blanc à tour de rôle */
@@ -1221,8 +1256,16 @@ a.bande__corps:hover .bande__nom {
 }
 
 .plan__texte {
-  grid-column: 1 / 7;
+  grid-column: 1 / 8;
   padding-right: 32px;
+}
+
+.plan__chaine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(100% / 12 * 9 - 10px);
+  z-index: -1;
 }
 
 .plan__texte > * + * {
@@ -1239,9 +1282,9 @@ a.bande__corps:hover .bande__nom {
 }
 
 .cibles {
-  max-width: 60ch;
-  font-size: 15px;
-  line-height: 24px;
+  max-width: 54ch;
+  font-size: 18px;
+  line-height: 30px;
 }
 
 .cibles strong {
@@ -1380,13 +1423,6 @@ a.bande__corps:hover .bande__nom {
   grid-column: 5 / 12;
 }
 
-.voix__titre {
-  font-size: 15px;
-  line-height: 22px;
-  font-weight: 600;
-  color: var(--g700);
-}
-
 .voix__extrait {
   margin-top: 20px;
 }
@@ -1419,10 +1455,11 @@ a.bande__corps:hover .bande__nom {
 
 /* ---------- 16. Citation ---------- */
 .citation-bande {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   padding-block: clamp(56px, 7vw, 88px);
   background: var(--bleu-voile);
-  background-image: linear-gradient(90deg, var(--couture-claire) 1px, transparent 1px);
-  background-size: calc(100% / 12) 100%;
 }
 
 .citation {
@@ -1660,6 +1697,11 @@ a.bande__corps:hover .bande__nom {
   top: 8px;
 }
 
+.toile .puces li {
+  border-bottom-color: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+}
+
 .puces--vertes li::before {
   background: var(--vert);
 }
@@ -1729,42 +1771,23 @@ a.bande__corps:hover .bande__nom {
 /* ---------- 20. Le réseau : le plan détaillé ---------- */
 .axes-detail {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: calc(100% / 12);
   margin-top: 64px;
-  border-left: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .axes-detail li {
-  padding: 24px 24px 32px;
-  border-right: 1px solid rgba(255, 255, 255, 0.16);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 22px 0 26px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.axes-detail li::before {
-  content: "";
-  display: block;
-  width: 40px;
-  height: 6px;
-  margin-bottom: 16px;
-  background: var(--orange);
-}
-
-.axes-detail li:nth-child(even)::before {
-  background: var(--vert);
-}
-
-.axes-detail small {
-  display: block;
-  font-size: 13px;
-  line-height: 18px;
-  font-weight: 600;
-  color: var(--sur-bleu-doux);
-  margin-bottom: 6px;
+.axes-detail__num {
+  color: var(--orange);
+  margin-right: 6px;
 }
 
 .axes-detail p {
-  margin-top: 8px;
+  margin-top: 6px;
   font-size: 15px;
   line-height: 24px;
 }
@@ -1777,6 +1800,25 @@ a.bande__corps:hover .bande__nom {
 
 .toile-section {
   padding-block: var(--section);
+  isolation: isolate;
+}
+
+.toile-section > .wrap {
+  position: relative;
+}
+
+.toile-section > .wrap::before {
+  content: "";
+  position: absolute;
+  top: -400px;
+  bottom: -400px;
+  left: var(--gouttiere);
+  right: var(--gouttiere);
+  z-index: -1;
+  pointer-events: none;
+  background-image: linear-gradient(90deg, var(--couture) 1px, transparent 1px);
+  background-size: calc(100% / var(--bandes)) 100%;
+  border-right: 1px solid var(--couture);
 }
 
 /* ---------- 21. Président ---------- */
@@ -1955,23 +1997,16 @@ a.bande__corps:hover .bande__nom {
 
 /* ---------- 23. Contact ---------- */
 .canaux {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 4px solid var(--bleu);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .canal {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 32px 28px 36px;
-  background: #ffffff;
-  border-right: 1px solid var(--g100);
-}
-
-.canal--principal {
-  background: var(--bleu);
-  color: #ffffff;
+  display: grid;
+  grid-template-columns: 48px minmax(0, 2fr) minmax(0, 4fr) minmax(0, 4fr);
+  gap: 8px 24px;
+  align-items: center;
+  padding-block: 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .canal__icone {
@@ -1980,9 +2015,8 @@ a.bande__corps:hover .bande__nom {
   justify-content: center;
   width: 48px;
   height: 48px;
-  margin-bottom: 8px;
-  background: var(--bleu-voile);
-  color: var(--bleu);
+  background: var(--bleu-clair);
+  color: #ffffff;
 }
 
 .canal--principal .canal__icone {
@@ -1991,26 +2025,18 @@ a.bande__corps:hover .bande__nom {
 }
 
 .canal__libelle {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
-  color: var(--g700);
-}
-
-.canal--principal .canal__libelle {
-  color: var(--sur-bleu);
+  color: #ffffff;
 }
 
 .canal__valeur {
   font-family: var(--serif);
-  font-size: 24px;
-  line-height: 30px;
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.2;
   font-weight: 600;
-  color: var(--bleu);
-  overflow-wrap: anywhere;
-}
-
-.canal--principal .canal__valeur {
   color: #ffffff;
+  overflow-wrap: anywhere;
 }
 
 a.canal__valeur:hover {
@@ -2021,11 +2047,13 @@ a.canal__valeur:hover {
 .canal__note {
   font-size: 14px;
   line-height: 22px;
-  color: var(--g700);
+  color: var(--sur-bleu);
 }
 
-.canal--principal .canal__note {
-  color: var(--sur-bleu);
+/* Les icônes des pages claires (actualités) */
+.section .canal__icone {
+  background: var(--bleu-voile);
+  color: var(--bleu);
 }
 
 .reseaux-liste li {
@@ -2252,9 +2280,21 @@ a.canal__valeur:hover {
   }
 
   .axes-detail,
-  .atouts,
-  .canaux {
+  .atouts {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .canal {
+    grid-template-columns: 48px minmax(0, 1fr);
+  }
+
+  .canal__valeur,
+  .canal__note {
+    grid-column: 2;
+  }
+
+  .heros__texte {
+    padding-top: 0;
   }
 
   .atouts li + li {
@@ -2263,10 +2303,6 @@ a.canal__valeur:hover {
     border-top: 1px solid var(--g100);
   }
 
-  .canal {
-    border-right: 0;
-    border-bottom: 1px solid var(--g100);
-  }
 
   .annees {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2361,12 +2397,8 @@ a.canal__valeur:hover {
     padding: 24px 20px;
   }
 
-  .bande:nth-child(even) .bande__corps {
-    margin-left: 24px;
-  }
-
-  .bande:nth-child(odd) .bande__corps {
-    margin-right: 24px;
+  .bande__corps {
+    border-left: 1px solid var(--g300);
   }
 
   .bande__blocs {
@@ -2393,7 +2425,30 @@ a.canal__valeur:hover {
   }
 
   .voix__portrait {
-    grid-column: 1 / 3;
+    grid-column: 1 / 7;
+  }
+
+  .voix__portrait span {
+    font-size: 56px;
+  }
+
+  /* En-têtes intérieurs : la trame quitte la colonne de texte et devient lisière */
+  .trame--entete {
+    display: none;
+  }
+
+  .tete-page__texte::after {
+    content: "";
+    display: block;
+    height: 12px;
+    margin-top: 36px;
+    background: linear-gradient(
+      90deg,
+      var(--orange) 0 25%,
+      var(--bleu-clair) 25% 50%,
+      var(--vert) 50% 75%,
+      var(--bleu-voile) 75% 100%
+    );
   }
 
   .voix__texte {

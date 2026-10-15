@@ -3,7 +3,7 @@ import { getDict } from "@/content";
 import { href, type Locale } from "@/lib/site";
 import { Arrow } from "../icons";
 import { Loom } from "../Loom";
-import { PlanAxes, PlanYears, ProgrammeCloth, Targets } from "../sections";
+import { PlanYears, ProgrammeCloth, Targets } from "../sections";
 import { Chaine, Filet, JoinBand, Trame, type Bloc } from "../ui";
 
 /* Les blocs de trame du héros, décalés de bande en bande. */
@@ -80,36 +80,6 @@ export function HomePage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="toile toile--plan" aria-labelledby="plan-titre">
-        <div className="wrap">
-          <div className="metier plan">
-            <div className="plan__texte">
-              <h2 className="h2" id="plan-titre">
-                {h.plan.title}
-              </h2>
-              <div className="texte">
-                {h.plan.paragraphs.map((p) => (
-                  <p key={p}>{p}</p>
-                ))}
-              </div>
-              <Targets t={t} />
-              <p>
-                <Link className="lien-clair" href={href(locale, "le-reseau", "plan")}>
-                  {h.plan.link}
-                  <Arrow />
-                </Link>
-              </p>
-            </div>
-            <div className="plan__axes">
-              <PlanAxes t={t} />
-            </div>
-            <div className="plan__annees">
-              <PlanYears t={t} />
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="section voix" aria-labelledby="voix-titre">
         <div className="wrap">
           <div className="metier metier--clair voix__metier">
@@ -117,7 +87,7 @@ export function HomePage({ locale }: { locale: Locale }) {
               <span>AK</span>
             </div>
             <div className="voix__texte">
-              <h2 className="voix__titre" id="voix-titre">
+              <h2 className="sr-only" id="voix-titre">
                 {t.message.header.title}
               </h2>
               <blockquote className="voix__extrait">
@@ -133,6 +103,29 @@ export function HomePage({ locale }: { locale: Locale }) {
                   <Arrow />
                 </Link>
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="toile toile--plan" aria-labelledby="plan-titre">
+        <div className="wrap">
+          <div className="metier plan">
+            <Chaine className="plan__chaine" />
+            <div className="plan__texte">
+              <h2 className="h2" id="plan-titre">
+                {h.plan.title}
+              </h2>
+              <Targets t={t} />
+              <p>
+                <Link className="lien-clair" href={href(locale, "le-reseau", "plan")}>
+                  {h.plan.link}
+                  <Arrow />
+                </Link>
+              </p>
+            </div>
+            <div className="plan__annees">
+              <PlanYears t={t} />
             </div>
           </div>
         </div>

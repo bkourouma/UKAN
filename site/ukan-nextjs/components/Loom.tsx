@@ -66,6 +66,13 @@ export function Loom({ t, conditionsHref }: Props) {
 
   return (
     <form className="metier-panneau" id="metier" onSubmit={onSubmit} noValidate aria-labelledby={`${id}-titre`}>
+      {/* La bande du visiteur, en lisière du panneau : un bloc tissé par réponse,
+          vert quand la demande est prête (vert = confirmation, charte § 1). */}
+      <div className={`lisiere${ready ? " lisiere--prete" : ""}`} aria-hidden="true">
+        {filled.map((on, i) => (
+          <i key={t.swatchSteps[i]} className={on ? "tisse" : undefined} />
+        ))}
+      </div>
       <h2 className="metier-panneau__titre" id={`${id}-titre`}>
         {t.title}
       </h2>
@@ -158,17 +165,9 @@ export function Loom({ t, conditionsHref }: Props) {
         </div>
       </div>
 
-      {/* La bande du visiteur : un bloc tissé par réponse, vert quand la demande est prête. */}
-      <div className={`echantillon${ready ? " echantillon--pret" : ""}`}>
-        <div className="echantillon__bande" aria-hidden="true">
-          {filled.map((on, i) => (
-            <i key={t.swatchSteps[i]} className={on ? "tisse" : undefined} />
-          ))}
-        </div>
-        <p className="echantillon__etat" aria-live="polite">
-          {ready ? t.ready : t.waiting}
-        </p>
-      </div>
+      <p className={`metier-panneau__etat${ready ? " metier-panneau__etat--pret" : ""}`} aria-live="polite">
+        {ready ? t.ready : t.waiting}
+      </p>
 
       <button type="submit" className="bouton bouton--grand bouton--orange metier-panneau__envoi">
         <WhatsApp />

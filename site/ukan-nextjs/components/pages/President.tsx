@@ -51,7 +51,7 @@ export function PresidentPage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="section section--gris">
+      <section className="toile toile-section">
         <div className="wrap">
           <SectionHead title={p.expertise.title} />
           <div className="deux-colonnes">

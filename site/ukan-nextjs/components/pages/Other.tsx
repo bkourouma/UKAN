@@ -259,7 +259,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
     <>
       <PageHeader title={c.header.title} lede={c.header.lede} />
 
-      <section className="section">
+      <section className="toile toile-section">
         <div className="wrap">
           <ul className="canaux">
             {channels.map((ch) => (

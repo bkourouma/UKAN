@@ -165,7 +165,7 @@ export const fr = {
       id: "mentoring",
       name: "UKAN Mentoring",
       purpose: "Accélérer les parcours professionnels et le transfert d’expérience entre générations.",
-      deliverables: ["50 mentors mobilisés", "Parcours de mentorat", "Mise en relation experts–jeunes alumni"],
+      deliverables: ["Objectif 2030 : 50 mentors", "Parcours de mentorat", "Mise en relation experts–jeunes alumni"],
     },
     {
       id: "leadership",
