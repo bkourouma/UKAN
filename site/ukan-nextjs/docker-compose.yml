@@ -1,0 +1,17 @@
+services:
+  web:
+    build:
+      context: .
+      args:
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://ukan.allianceconsultants.net}
+    image: ukan-site:latest
+    container_name: ukan-site
+    restart: unless-stopped
+    ports:
+      # Port local uniquement : le nginx de l'hôte termine le TLS et relaie ici
+      - "127.0.0.1:3040:8080"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3

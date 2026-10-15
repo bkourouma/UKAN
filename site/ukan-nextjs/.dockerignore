@@ -1,0 +1,12 @@
+node_modules
+.next
+out
+.git
+.env*
+!.env.example
+Dockerfile
+docker-compose.yml
+*.md
+deploy/*.sh
+deploy/nginx-ukan.allianceconsultants.net.conf
+*.tsbuildinfo
