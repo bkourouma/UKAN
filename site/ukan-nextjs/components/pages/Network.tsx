@@ -11,7 +11,7 @@ export function NetworkPage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <PageHeader kicker={t.nav[1].label} title={n.header.title} lede={n.header.lede} />
+      <PageHeader title={n.header.title} lede={n.header.lede} />
 
       <section className="section">
         <div className="wrap deux-colonnes">
@@ -85,7 +85,7 @@ export function NetworkPage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="section sombre" id="plan">
+      <section className="toile toile-section" id="plan">
         <div className="wrap">
           <SectionHead title={n.plan.title} lede={n.plan.lede} />
           <PlanYears t={t} />

@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { getDict } from "@/content";
 import { href, mailto, site, type Locale } from "@/lib/site";
 import { Briefcase, Coche, Facebook, LinkedIn, Mail, Newsletter, Person, Phone, WhatsApp } from "../icons";
+import { Loom } from "../Loom";
 import { JoinBand, PageHeader, SectionHead, Todo } from "../ui";
 
 /* ------------------------------------------------------------------ */
@@ -16,7 +17,7 @@ export function NewsPage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <PageHeader kicker={t.nav[4].label} title={n.header.title} lede={n.header.lede} />
+      <PageHeader title={n.header.title} lede={n.header.lede} />
 
       <section className="section section--serre">
         <div className="wrap">
@@ -43,10 +44,12 @@ export function NewsPage({ locale }: { locale: Locale }) {
                   <span className="canal__icone">
                     <Icon />
                   </span>
-                  <h3 className="h4">{item.title}</h3>
-                  <p>
-                    {item.text} {item.todo && <Todo>{item.todo}</Todo>}
-                  </p>
+                  <div>
+                    <h3 className="h4">{item.title}</h3>
+                    <p>
+                      {item.text} {item.todo && <Todo>{item.todo}</Todo>}
+                    </p>
+                  </div>
                 </li>
               );
             })}
@@ -69,7 +72,7 @@ export function PartnersPage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <PageHeader kicker={t.nav[5].label} title={p.header.title} lede={p.header.lede} />
+      <PageHeader title={p.header.title} lede={p.header.lede} />
 
       <section className="section">
         <div className="wrap">
@@ -134,9 +137,9 @@ export function JoinPage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <PageHeader kicker={t.common.join} title={j.header.title} lede={j.header.lede} />
+      <PageHeader title={j.header.title} lede={j.header.lede} />
 
-      <section className="section">
+      <section className="section" id="conditions">
         <div className="wrap deux-colonnes">
           <div>
             <SectionHead title={j.eligibility.title}>
@@ -176,48 +179,48 @@ export function JoinPage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="section" id="demande">
-        <div className="wrap deux-colonnes">
-          <div>
-            <SectionHead title={j.apply.title}>
+      <section className="toile adhesion-metier" id="demande" aria-labelledby="demande-titre">
+        <div className="wrap">
+          <div className="metier">
+            <div className="adhesion-metier__texte">
+              <h2 className="h2" id="demande-titre">
+                {j.apply.title}
+              </h2>
               <p className="chapo">{j.apply.text}</p>
-            </SectionHead>
-            <div className="actions" style={{ marginTop: 0 }}>
-              <a className="bouton bouton--orange" href={site.whatsapp}>
-                <WhatsApp />
-                {j.apply.whatsapp}
-              </a>
-              <a className="bouton bouton--contour" href={mailto(j.apply.subject)}>
-                {j.apply.email}
-              </a>
-            </div>
-            <p className="petit" style={{ marginTop: 20 }}>
-              {site.membershipFormUrl ? (
-                <a className="lien-texte" href={site.membershipFormUrl}>
-                  {j.apply.formLink}
-                </a>
-              ) : (
-                <>
-                  {j.apply.formNote} <Todo>{j.apply.formTodo}</Todo>
-                </>
-              )}
-            </p>
-          </div>
-          <div className="pile">
-            <div className="encadre encadre--orange">
-              <h3 className="h4">{j.fee.title}</h3>
-              <p>
-                {j.fee.text} <Todo>{j.fee.todo}</Todo>
+              <p className="petit">
+                {site.membershipFormUrl ? (
+                  <a className="lien-clair" href={site.membershipFormUrl}>
+                    {j.apply.formLink}
+                  </a>
+                ) : (
+                  <>
+                    {j.apply.formNote} <Todo>{j.apply.formTodo}</Todo>
+                  </>
+                )}
               </p>
             </div>
-            <div className="encadre">
-              <h3 className="h4">{j.commitments.title}</h3>
-              <ul className="puces puces--sans-filet" style={{ marginTop: 12 }}>
-                {j.commitments.items.map((c) => (
-                  <li key={c}>{c}</li>
-                ))}
-              </ul>
+            <div className="adhesion-metier__panneau">
+              <Loom t={t.loom} conditionsHref="#conditions" />
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="wrap deux-colonnes">
+          <div className="encadre encadre--orange">
+            <h2 className="h4">{j.fee.title}</h2>
+            <p>
+              {j.fee.text} <Todo>{j.fee.todo}</Todo>
+            </p>
+          </div>
+          <div className="encadre">
+            <h2 className="h4">{j.commitments.title}</h2>
+            <ul className="puces puces--sans-filet" style={{ marginTop: 12 }}>
+              {j.commitments.items.map((c) => (
+                <li key={c}>{c}</li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -254,7 +257,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <PageHeader kicker={t.nav[6].label} title={c.header.title} lede={c.header.lede} />
+      <PageHeader title={c.header.title} lede={c.header.lede} />
 
       <section className="section">
         <div className="wrap">
@@ -287,8 +290,8 @@ export function ContactPage({ locale }: { locale: Locale }) {
           </div>
           <div>
             <SectionHead title={c.social.title} />
-            <ul className="pile-serree">
-              <li className="canal__libelle" style={{ display: "flex", gap: 12, alignItems: "center" }}>
+            <ul className="pile-serree reseaux-liste">
+              <li>
                 <LinkedIn /> LinkedIn{" "}
                 {site.linkedin ? (
                   <a className="lien-texte" href={site.linkedin}>
@@ -298,7 +301,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
                   <Todo>{c.social.linkTodo}</Todo>
                 )}
               </li>
-              <li className="canal__libelle" style={{ display: "flex", gap: 12, alignItems: "center" }}>
+              <li>
                 <Facebook /> Facebook{" "}
                 {site.facebook ? (
                   <a className="lien-texte" href={site.facebook}>
@@ -422,7 +425,6 @@ export function NotFoundContent({ locale }: { locale: Locale }) {
   return (
     <section className="section introuvable">
       <div className="wrap pile">
-        <p className="surtitre">404</p>
         <h1 className="h1">{t.notFound.title}</h1>
         <p className="chapo">{t.notFound.text}</p>
         <div className="actions">

@@ -29,8 +29,44 @@ export const fr = {
     { slug: "contact", label: "Contact" },
   ],
 
+  loom: {
+    title: "Préparer ma demande d’adhésion",
+    linkLegend: "Mon lien avec le Royaume-Uni",
+    links: [
+      { id: "etudes", label: "J’y ai étudié", phrase: "J’ai étudié au Royaume-Uni" },
+      { id: "formation", label: "J’y ai suivi une formation", phrase: "J’ai suivi une formation au Royaume-Uni" },
+      { id: "bourse", label: "J’ai eu une bourse britannique", phrase: "J’ai bénéficié d’une bourse britannique" },
+      { id: "programme", label: "J’ai suivi un autre programme", phrase: "J’ai participé à un programme au Royaume-Uni" },
+    ],
+    name: "Nom et prénom",
+    institution: "Établissement ou programme britannique",
+    institutionHint: "Université, école, Chevening…",
+    year: "Année",
+    yearHint: "2015",
+    optional: "facultatif",
+    submit: "Envoyer ma demande sur WhatsApp",
+    email: "Je préfère l’e-mail",
+    note: "Rien n’est enregistré sur ce site : votre message s’ouvre dans WhatsApp et c’est vous qui l’envoyez.",
+    conditions: "Voir les conditions d’adhésion",
+    errors: {
+      link: "Choisissez votre lien avec le Royaume-Uni.",
+      name: "Indiquez votre nom pour que le Bureau puisse vous répondre.",
+      institution: "Indiquez l’établissement ou le programme britannique.",
+    },
+    swatch: "Votre bande dans l’étoffe",
+    swatchSteps: ["lien", "nom", "établissement", "année"],
+    waiting: "Votre bande se tisse à mesure que vous remplissez.",
+    ready: "Votre demande est prête.",
+    greeting: "Bonjour UKAN, je souhaite adhérer au réseau.",
+    nameLine: "Nom :",
+    institutionLine: "Établissement :",
+    yearLine: "Année :",
+    subject: "Demande d’adhésion UKAN",
+  },
+
   joinBand: {
     title: "Rejoignez le réseau",
+    cta: "Préparer ma demande",
     text: "L’adhésion est ouverte à toute personne ayant étudié, suivi une formation ou participé à un programme au Royaume-Uni.",
   },
 
@@ -600,7 +636,7 @@ export const fr = {
     sections: [
       {
         title: "Ce que ce site collecte",
-        text: "Ce site ne comporte ni formulaire, ni compte utilisateur, ni traceur publicitaire. Il ne dépose aucun cookie de mesure d’audience. Consulter ces pages ne laisse aucune donnée personnelle chez UKAN.",
+        text: "Ce site ne comporte ni compte utilisateur, ni traceur publicitaire, et ne dépose aucun cookie de mesure d’audience. Le formulaire d’adhésion ne transmet rien à UKAN : il prépare un message que vous envoyez vous-même par WhatsApp ou par e-mail. Consulter ces pages ne laisse aucune donnée personnelle chez UKAN.",
       },
       {
         title: "Ce que UKAN collecte par ailleurs",

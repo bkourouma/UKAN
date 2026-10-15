@@ -1,6 +1,6 @@
 import { getDict } from "@/content";
 import { mailto, type Locale } from "@/lib/site";
-import { Coche } from "../icons";
+import { ProgrammeCloth } from "../sections";
 import { PageHeader, Todo } from "../ui";
 
 export function ProgrammesPage({ locale }: { locale: Locale }) {
@@ -9,31 +9,11 @@ export function ProgrammesPage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <PageHeader kicker={t.nav[3].label} title={pp.header.title} lede={pp.header.lede} />
+      <PageHeader title={pp.header.title} lede={pp.header.lede} />
 
       <section className="section">
         <div className="wrap">
-          <ul className="fiches">
-            {t.programmes.map((p) => (
-              <li key={p.id} id={p.id}>
-                <div>
-                  <h2 className="programme__nom">{p.name}</h2>
-                  <p className="programme__but">{p.purpose}</p>
-                </div>
-                <div>
-                  <h3 className="sr-only">{pp.deliverablesLabel}</h3>
-                  <ul className="livrables">
-                    {p.deliverables.map((d) => (
-                      <li key={d}>
-                        <Coche />
-                        <span>{d}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <ProgrammeCloth t={t} locale={locale} detailed />
         </div>
       </section>
 
@@ -41,7 +21,6 @@ export function ProgrammesPage({ locale }: { locale: Locale }) {
       <section className="appel" aria-labelledby="mentor-titre">
         <div className="wrap">
           <div>
-            <p className="surtitre">{pp.mentor.kicker}</p>
             <h2 className="h2" id="mentor-titre">
               {pp.mentor.title}
             </h2>

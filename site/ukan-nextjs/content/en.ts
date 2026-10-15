@@ -31,8 +31,44 @@ export const en: Dict = {
     { slug: "contact", label: "Contact" },
   ],
 
+  loom: {
+    title: "Prepare my membership request",
+    linkLegend: "My link with the United Kingdom",
+    links: [
+      { id: "etudes", label: "I studied there", phrase: "I studied in the United Kingdom" },
+      { id: "formation", label: "I trained there", phrase: "I undertook training in the United Kingdom" },
+      { id: "bourse", label: "I held a UK scholarship", phrase: "I held a UK scholarship" },
+      { id: "programme", label: "I took part in another programme", phrase: "I took part in a programme in the United Kingdom" },
+    ],
+    name: "Full name",
+    institution: "UK institution or programme",
+    institutionHint: "University, school, Chevening…",
+    year: "Year",
+    yearHint: "2015",
+    optional: "optional",
+    submit: "Send my request on WhatsApp",
+    email: "I prefer email",
+    note: "Nothing is stored on this site: your message opens in WhatsApp and you send it yourself.",
+    conditions: "See membership conditions",
+    errors: {
+      link: "Choose your link with the United Kingdom.",
+      name: "Enter your name so the Board can reply to you.",
+      institution: "Enter the UK institution or programme.",
+    },
+    swatch: "Your strip in the cloth",
+    swatchSteps: ["link", "name", "institution", "year"],
+    waiting: "Your strip is woven as you fill in the form.",
+    ready: "Your request is ready.",
+    greeting: "Hello UKAN, I would like to join the network.",
+    nameLine: "Name:",
+    institutionLine: "Institution:",
+    yearLine: "Year:",
+    subject: "UKAN membership request",
+  },
+
   joinBand: {
     title: "Join the network",
+    cta: "Prepare my request",
     text: "Membership is open to anyone who has studied, trained or taken part in a programme in the United Kingdom.",
   },
 
@@ -593,7 +629,7 @@ export const en: Dict = {
     sections: [
       {
         title: "What this site collects",
-        text: "This site has no form, no user account and no advertising tracker. It sets no analytics cookies. Browsing these pages leaves no personal data with UKAN.",
+        text: "This site has no user account and no advertising tracker, and sets no analytics cookies. The membership form sends nothing to UKAN: it prepares a message that you send yourself by WhatsApp or email. Browsing these pages leaves no personal data with UKAN.",
       },
       {
         title: "What UKAN collects elsewhere",

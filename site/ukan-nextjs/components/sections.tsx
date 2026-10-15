@@ -3,29 +3,44 @@ import type { Dict } from "@/content";
 import { href, type Locale } from "@/lib/site";
 import { Arrow } from "./icons";
 
-/** Index compact des sept programmes : chaque ligne mène à sa fiche. */
-export function ProgrammeIndex({ t, locale }: { t: Dict; locale: Locale }) {
+/**
+ * Les sept programmes, cousus bande contre bande.
+ * Sur grand écran, chaque programme est une bande verticale ; les bandes paires
+ * descendent d’un cran, comme les blocs décalés d’un pagne Kita.
+ */
+export function ProgrammeCloth({ t, locale, detailed = false }: { t: Dict; locale: Locale; detailed?: boolean }) {
   return (
-    <ul className="programmes">
-      {t.programmes.map((p) => (
-        <li key={p.id}>
-          <Link className="programme" href={href(locale, "programmes", p.id)}>
-            <h3 className="programme__nom">{p.name}</h3>
-            <p className="programme__but">{p.purpose}</p>
-            <ul className="pastilles">
+    <ul className={`bandes${detailed ? " bandes--detail" : ""}`}>
+      {t.programmes.map((p) => {
+        const inner = (
+          <>
+            <h3 className="bande__nom">{p.name}</h3>
+            <p className="bande__but">{p.purpose}</p>
+            <ul className="bande__blocs">
               {p.deliverables.map((d) => (
                 <li key={d}>{d}</li>
               ))}
             </ul>
-            <Arrow className="programme__fleche" />
-          </Link>
-        </li>
-      ))}
+            {!detailed && <Arrow className="bande__fleche" />}
+          </>
+        );
+        return (
+          <li key={p.id} id={detailed ? p.id : undefined} className="bande">
+            {detailed ? (
+              <div className="bande__corps">{inner}</div>
+            ) : (
+              <Link className="bande__corps" href={href(locale, "programmes", p.id)}>
+                {inner}
+              </Link>
+            )}
+          </li>
+        );
+      })}
     </ul>
   );
 }
 
-/** Les cinq années du plan : une vraie séquence, donc une ligne du temps. */
+/** Les cinq années du plan, chacune sur deux bandes du métier. */
 export function PlanYears({ t }: { t: Dict }) {
   return (
     <ol className="annees">
@@ -52,5 +67,21 @@ export function PlanAxes({ t }: { t: Dict }) {
         </li>
       ))}
     </ol>
+  );
+}
+
+/** Objectifs 2030 dits en une phrase : ce sont des cibles, pas des résultats. */
+export function Targets({ t }: { t: Dict }) {
+  const items = t.home.figures.items;
+  return (
+    <p className="cibles">
+      {t.home.figures.title} :{" "}
+      {items.map((f, i) => (
+        <span key={f.label}>
+          <strong>{f.value}</strong> {f.label}
+          {i < items.length - 1 ? ", " : "."}
+        </span>
+      ))}
+    </p>
   );
 }
