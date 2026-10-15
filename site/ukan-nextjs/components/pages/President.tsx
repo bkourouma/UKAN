@@ -25,7 +25,7 @@ export function PresidentPage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <PageHeader title={p.name} lede={p.header.lede} />
+      <PageHeader motif={2} title={p.name} lede={p.header.lede} />
 
       <section className="section">
         <div className="wrap portrait-bio">
@@ -81,7 +81,7 @@ export function MessagePage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <PageHeader title={m.header.title} lede={m.header.lede} />
+      <PageHeader motif={3} title={m.header.title} lede={m.header.lede} />
 
       <section className="section">
         <div className="wrap portrait-bio">

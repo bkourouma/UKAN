@@ -1260,13 +1260,7 @@ a.bande__corps:hover .bande__nom {
   padding-right: 32px;
 }
 
-.plan__chaine {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: calc(100% / 12 * 9 - 10px);
-  z-index: -1;
-}
+
 
 .plan__texte > * + * {
   margin-top: 20px;

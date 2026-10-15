@@ -17,7 +17,7 @@ export function NewsPage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <PageHeader title={n.header.title} lede={n.header.lede} />
+      <PageHeader motif={2} title={n.header.title} lede={n.header.lede} />
 
       <section className="section section--serre">
         <div className="wrap">
@@ -72,7 +72,7 @@ export function PartnersPage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <PageHeader title={p.header.title} lede={p.header.lede} />
+      <PageHeader motif={3} title={p.header.title} lede={p.header.lede} />
 
       <section className="section">
         <div className="wrap">
@@ -137,7 +137,7 @@ export function JoinPage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <PageHeader title={j.header.title} lede={j.header.lede} />
+      <PageHeader motif={0} title={j.header.title} lede={j.header.lede} />
 
       <section className="section" id="conditions">
         <div className="wrap deux-colonnes">
@@ -257,7 +257,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <PageHeader title={c.header.title} lede={c.header.lede} />
+      <PageHeader motif={3} title={c.header.title} lede={c.header.lede} />
 
       <section className="toile toile-section">
         <div className="wrap">
@@ -331,7 +331,7 @@ export function LegalPage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <PageHeader title={l.header.title} lede={l.header.lede} />
+      <PageHeader motif={1} title={l.header.title} lede={l.header.lede} />
       <section className="section">
         <div className="wrap prose">
           <section>

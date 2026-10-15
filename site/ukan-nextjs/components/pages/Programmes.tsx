@@ -9,7 +9,7 @@ export function ProgrammesPage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <PageHeader title={pp.header.title} lede={pp.header.lede} />
+      <PageHeader motif={0} title={pp.header.title} lede={pp.header.lede} />
 
       <section className="section">
         <div className="wrap">

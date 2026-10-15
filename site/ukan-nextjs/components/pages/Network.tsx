@@ -11,7 +11,7 @@ export function NetworkPage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <PageHeader title={n.header.title} lede={n.header.lede} />
+      <PageHeader motif={1} title={n.header.title} lede={n.header.lede} />
 
       <section className="section">
         <div className="wrap deux-colonnes">

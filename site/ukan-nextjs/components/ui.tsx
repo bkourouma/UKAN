@@ -85,18 +85,12 @@ const enteteBlocs: Bloc[][] = [
   ],
 ];
 
-function choisir(title: string) {
-  let h = 0;
-  for (const c of title) h = (h * 31 + c.charCodeAt(0)) >>> 0;
-  return enteteBlocs[h % enteteBlocs.length];
-}
-
-export function PageHeader({ title, lede }: { title: string; lede?: string }) {
+export function PageHeader({ title, lede, motif = 0 }: { title: string; lede?: string; motif?: number }) {
   return (
     <header className="toile tete-page">
       <div className="wrap">
         <div className="metier">
-          <Trame blocs={choisir(title)} className="trame--entete" />
+          <Trame blocs={enteteBlocs[motif % enteteBlocs.length]} className="trame--entete" />
           <div className="tete-page__texte">
             <h1 className="h1">{title}</h1>
             {lede && <p className="chapo">{lede}</p>}

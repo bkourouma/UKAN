@@ -111,7 +111,6 @@ export function HomePage({ locale }: { locale: Locale }) {
       <section className="toile toile--plan" aria-labelledby="plan-titre">
         <div className="wrap">
           <div className="metier plan">
-            <Chaine className="plan__chaine" />
             <div className="plan__texte">
               <h2 className="h2" id="plan-titre">
                 {h.plan.title}
