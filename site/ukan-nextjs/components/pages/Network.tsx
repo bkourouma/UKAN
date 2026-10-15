@@ -14,26 +14,26 @@ export function NetworkPage({ locale }: { locale: Locale }) {
       <PageHeader motif={1} title={n.header.title} lede={n.header.lede} />
 
       <section className="section">
-        <div className="wrap deux-colonnes">
-          <div className="texte chapo">
-            {n.intro.map((p) => (
-              <p key={p}>{p}</p>
-            ))}
-          </div>
-          <div className="pile">
-            <div className="encadre">
-              <h2 className="h4">{n.vision.title}</h2>
+        <div className="wrap">
+          <div className="metier metier--clair tissu">
+            <div className="texte chapo tissu__texte">
+              {n.intro.map((p) => (
+                <p key={p}>{p}</p>
+              ))}
+            </div>
+            <div className="bande-texte bande-texte--bleu tissu__a">
+              <h2 className="bande-texte__titre">{n.vision.title}</h2>
               <p>{n.vision.text}</p>
             </div>
-            <div className="encadre encadre--orange">
-              <h2 className="h4">{n.ambition.title}</h2>
+            <div className="bande-texte bande-texte--orange tissu__b">
+              <h2 className="bande-texte__titre">{n.ambition.title}</h2>
               <p>{n.ambition.text}</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section section--gris" id="mission">
+      <section className="toile toile-section" id="mission">
         <div className="wrap deux-colonnes">
           <div>
             <SectionHead title={n.mission.title} />
@@ -60,9 +60,9 @@ export function NetworkPage({ locale }: { locale: Locale }) {
       <section className="section" id="gouvernance">
         <div className="wrap">
           <SectionHead title={n.governance.title} lede={n.governance.lede} />
-          <div className="deux-colonnes">
-            <div className="encadre encadre--blanc pile-serree">
-              <h3 className="h4">{n.governance.board.title}</h3>
+          <div className="metier metier--clair tissu">
+            <div className="bande-texte bande-texte--voile tissu__gauche">
+              <h3 className="bande-texte__titre">{n.governance.board.title}</h3>
               <p>
                 {n.governance.board.text} <Todo>{t.common.todo}</Todo>
               </p>
@@ -73,7 +73,7 @@ export function NetworkPage({ locale }: { locale: Locale }) {
                 </Link>
               </p>
             </div>
-            <div>
+            <div className="tissu__droite">
               <h3 className="h4">{n.governance.commissions.title}</h3>
               <ul className="puces puces--vertes" style={{ marginTop: 16 }}>
                 {n.governance.commissions.items.map((c) => (
@@ -121,14 +121,14 @@ export function NetworkPage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="section section--serre">
+      <section className="section">
         <div className="wrap">
-          <div className="encadre encadre--vert">
-            <h2 className="h4">{n.accountability.title}</h2>
-            <p>
-              {n.accountability.text} {n.accountability.indicators.join(", ")}.
-            </p>
-          </div>
+          <SectionHead title={n.accountability.title} lede={n.accountability.text} />
+          <ul className="indicateurs">
+            {n.accountability.indicators.map((i) => (
+              <li key={i}>{i}</li>
+            ))}
+          </ul>
         </div>
       </section>
 

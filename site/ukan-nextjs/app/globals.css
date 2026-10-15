@@ -2454,6 +2454,211 @@ a.canal__valeur:hover {
   }
 }
 
+/* ---------- 29. Bandes de texte : l’encadré devenu bande de l’étoffe ---------- */
+.tissu {
+  align-items: start;
+  row-gap: 32px;
+}
+
+.tissu__texte {
+  grid-column: 1 / 7;
+  padding-right: 40px;
+}
+
+.tissu__a {
+  grid-column: 7 / 10;
+}
+
+.tissu__b {
+  grid-column: 10 / 13;
+  margin-top: 72px;
+}
+
+.tissu__gauche {
+  grid-column: 1 / 6;
+}
+
+.tissu__droite {
+  grid-column: 7 / 13;
+}
+
+.tissu__decale {
+  margin-top: 72px;
+}
+
+.bande-texte {
+  padding: 28px 24px 36px;
+  background: var(--bleu-voile);
+}
+
+.bande-texte::before {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 8px;
+  margin-bottom: 18px;
+  background: var(--bleu);
+}
+
+.bande-texte__titre {
+  font-family: var(--serif);
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 600;
+  color: var(--bleu);
+  letter-spacing: -0.01em;
+}
+
+.bande-texte p,
+.bande-texte ul {
+  margin-top: 12px;
+  color: var(--g700);
+}
+
+.bande-texte--bleu {
+  background: var(--bleu);
+}
+
+.bande-texte--bleu::before {
+  background: var(--orange);
+}
+
+.bande-texte--bleu .bande-texte__titre {
+  color: #ffffff;
+}
+
+.bande-texte--bleu p {
+  color: var(--sur-bleu);
+}
+
+.bande-texte--orange {
+  background: var(--orange-voile);
+}
+
+.bande-texte--orange::before {
+  background: var(--orange);
+}
+
+.bande-texte--voile::before {
+  background: var(--vert);
+}
+
+/* Redevabilité : les indicateurs en lignes réglées sur trois bandes */
+.indicateurs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: calc(100% / 12);
+  border-top: 4px solid var(--bleu);
+}
+
+.indicateurs li {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--g300);
+  font-weight: 500;
+  color: var(--bleu);
+}
+
+.indicateurs li::first-letter {
+  text-transform: uppercase;
+}
+
+/* Règles de l’adhésion : deux lignes réglées */
+.regles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: calc(100% / 12);
+}
+
+.regles li {
+  padding-top: 20px;
+  border-top: 4px solid var(--vert);
+}
+
+.regles p {
+  margin-top: 8px;
+  color: var(--g700);
+  max-width: 60ch;
+}
+
+/* Sur l’étoffe bleue : valeurs, étapes, principes */
+.toile .pastilles {
+  border-left-color: rgba(255, 255, 255, 0.24);
+}
+
+.toile .pastilles li {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.24);
+  color: #ffffff;
+}
+
+.toile .pastilles li:nth-child(4n + 1) {
+  background: var(--bleu-clair);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.toile .petit {
+  color: var(--sur-bleu);
+}
+
+.toile .etapes {
+  border-top-color: rgba(255, 255, 255, 0.2);
+}
+
+.toile .etapes li::before {
+  background: var(--orange);
+}
+
+.toile .etapes li:last-child::before {
+  background: #3fae6f;
+}
+
+.toile .etapes b {
+  color: #ffffff;
+}
+
+.toile .etapes li:last-child b {
+  color: #7fd3a3;
+}
+
+.toile .etapes p {
+  color: var(--sur-bleu);
+}
+
+@media (max-width: 960px) {
+  .tissu__texte,
+  .tissu__a,
+  .tissu__b,
+  .tissu__gauche,
+  .tissu__droite {
+    grid-column: 1 / -1;
+    padding-right: 0;
+  }
+
+  .tissu__b,
+  .tissu__decale {
+    margin-top: 0;
+  }
+
+  .indicateurs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .regles {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 32px;
+  }
+
+  .toile .etapes li {
+    border-top-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+@media (max-width: 640px) {
+  .indicateurs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

@@ -165,7 +165,7 @@ export function JoinPage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="section section--gris">
+      <section className="toile toile-section">
         <div className="wrap">
           <SectionHead title={j.steps.title} />
           <ol className="etapes">
@@ -207,34 +207,38 @@ export function JoinPage({ locale }: { locale: Locale }) {
       </section>
 
       <section className="section">
-        <div className="wrap deux-colonnes">
-          <div className="encadre encadre--orange">
-            <h2 className="h4">{j.fee.title}</h2>
-            <p>
-              {j.fee.text} <Todo>{j.fee.todo}</Todo>
-            </p>
-          </div>
-          <div className="encadre">
-            <h2 className="h4">{j.commitments.title}</h2>
-            <ul className="puces puces--sans-filet" style={{ marginTop: 12 }}>
-              {j.commitments.items.map((c) => (
-                <li key={c}>{c}</li>
-              ))}
-            </ul>
+        <div className="wrap">
+          <div className="metier metier--clair tissu">
+            <div className="bande-texte bande-texte--orange tissu__gauche">
+              <h2 className="bande-texte__titre">{j.fee.title}</h2>
+              <p>
+                {j.fee.text} <Todo>{j.fee.todo}</Todo>
+              </p>
+            </div>
+            <div className="bande-texte bande-texte--voile tissu__droite tissu__decale">
+              <h2 className="bande-texte__titre">{j.commitments.title}</h2>
+              <ul className="puces puces--sans-filet">
+                {j.commitments.items.map((c) => (
+                  <li key={c}>{c}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="section section--gris section--serre">
-        <div className="wrap deux-colonnes">
-          <div className="encadre encadre--vert">
-            <h2 className="h4">{j.associate.title}</h2>
-            <p>{j.associate.text}</p>
-          </div>
-          <div className="encadre encadre--vert">
-            <h2 className="h4">{j.approval.title}</h2>
-            <p>{j.approval.text}</p>
-          </div>
+      <section className="section section--gris">
+        <div className="wrap">
+          <ul className="regles">
+            <li>
+              <h2 className="h4">{j.associate.title}</h2>
+              <p>{j.associate.text}</p>
+            </li>
+            <li>
+              <h2 className="h4">{j.approval.title}</h2>
+              <p>{j.approval.text}</p>
+            </li>
+          </ul>
         </div>
       </section>
     </>
